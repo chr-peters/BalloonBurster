@@ -1,30 +1,37 @@
 package com.christian_peters.balloonbuster;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class BalloonBusterGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
-	
+public class BalloonBusterGame extends Game {
+	public static int V_WIDTH;//Not final due to later changes
+	// regarding to different Screen resolutions
+	public static int V_HEIGHT;
+
+	private SpriteBatch batch;
+	private AssetManager assetmanager;
+
+
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
-		/*Test
-		Dies ist ein Werk des TestBranches
-		 */
+
+	}
+
+	public void startGame(){
+		//To be executed from the main-menu
+	}
+
+	public void gameOver(){
+		
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		super.render();
 	}
 }
