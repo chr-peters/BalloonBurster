@@ -15,7 +15,7 @@ public class BalloonBusterGame extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		/*Test
-		
+		Dies ist ein Werk des TestBranches
 		 */
 	}
 
