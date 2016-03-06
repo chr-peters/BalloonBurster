@@ -30,4 +30,8 @@ public class PlayBackground {
     public void pause(){
 
     }
+
+    public void resume(){
+
+    }
 }
