@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
 import com.christian_peters.balloonbuster.PlayBackground;
+import com.christian_peters.balloonbuster.PlayBalloons;
 
 /**
  * Created by Chris on 06.03.2016.
@@ -15,7 +16,8 @@ public class PlayScreen implements Screen{
     private BalloonBusterGame game;
     private AssetManager assetmanager;
     private PlayBackground background;
-    //TODO Add HUD and Balloons
+    private PlayBalloons balloons;
+    //TODO Add HUD
     private OrthographicCamera camera;
     private Viewport viewport;
 
