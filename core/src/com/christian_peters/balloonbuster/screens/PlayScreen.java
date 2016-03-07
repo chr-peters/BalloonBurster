@@ -45,6 +45,7 @@ public class PlayScreen implements Screen {
 
 		this.background = new PlayBackground(assetmanager);
 		this.balloons = new PlayBalloons(assetmanager);
+		this.hud = new PlayHUD(batch, assetmanager, this);
 
 	}
 
@@ -57,14 +58,15 @@ public class PlayScreen implements Screen {
 		batch.begin();
 		background.render(batch);
 		balloons.render(batch);
-		// TODO Render
 		batch.end();
+		hud.render();
 	}
 
 	public void update(float dt) {
 		background.update(dt);
 		handleTouch();
 		balloons.update(dt);
+		hud.update(dt);
 	}
 
 	public void gamePause() {
@@ -80,6 +82,7 @@ public class PlayScreen implements Screen {
 		assetmanager.load("cloud.png", Texture.class);
 		assetmanager.load("sun.png", Texture.class);
 		assetmanager.load("balloon.png", Texture.class);
+		assetmanager.load("hudBottomBackground.png", Texture.class);
 		assetmanager.finishLoading();
 	}
 
