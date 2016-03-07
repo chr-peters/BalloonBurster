@@ -71,6 +71,7 @@ public class PlayScreen implements Screen {
     public void loadAssets() {
         assetmanager.load("sky.jpg", Texture.class);
         assetmanager.load("cloud.png", Texture.class);
+        assetmanager.load("sun.png", Texture.class);
         assetmanager.finishLoading();
     }
 

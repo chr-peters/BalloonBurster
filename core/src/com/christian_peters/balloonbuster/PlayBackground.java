@@ -21,20 +21,33 @@ public class PlayBackground {
         this.assetmanager = assetmanager;
         //Create Sky
         Texture skyTexture = assetmanager.get("sky.jpg", Texture.class);
-        float textureAspect = (float)(skyTexture.getWidth())/skyTexture.getHeight();
+        float skyAspect = (float)(skyTexture.getWidth())/skyTexture.getHeight();
         sky = new Sky(skyTexture);
-        sky.setSize(BalloonBusterGame.V_HEIGHT*textureAspect, BalloonBusterGame.V_HEIGHT);
+        sky.setSize(BalloonBusterGame.V_HEIGHT*skyAspect, BalloonBusterGame.V_HEIGHT);
         sky.setCenter(BalloonBusterGame.V_WIDTH / 2, BalloonBusterGame.V_HEIGHT / 2);
         
+        //Create Clouds
         clouds = new CloudManager(assetmanager);
+        
+        //Create Sun
+        Texture sunTexture = assetmanager.get("sun.png", Texture.class);
+        float sunAspect = (float)(sunTexture.getWidth())/sunTexture.getHeight();
+        sun = new Sun(sunTexture);
+        float sunHeight = 150f;
+        sun.setSize(sunHeight*sunAspect, sunHeight);
+        sun.setCenter(BalloonBusterGame.V_WIDTH*0.8f, 1100f);
+        sun.setOrigin(sun.getWidth()/2, sun.getHeight()/2);
     }
 
     public void update(float dt){
+    	sky.update(dt);
+    	sun.update(dt);
     	clouds.update(dt);
     }
 
     public void render(SpriteBatch batch){
         sky.draw(batch);
+        sun.draw(batch);
         clouds.render(batch);
     }
 
