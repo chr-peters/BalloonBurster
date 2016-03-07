@@ -57,7 +57,7 @@ public class PlayScreen implements Screen {
     }
 
     public void update(float dt) {
-        //TODO Update
+        background.update(dt);
     }
 
     public void gamePause() {
@@ -70,6 +70,7 @@ public class PlayScreen implements Screen {
 
     public void loadAssets() {
         assetmanager.load("sky.jpg", Texture.class);
+        assetmanager.load("cloud.png", Texture.class);
         assetmanager.finishLoading();
     }
 
