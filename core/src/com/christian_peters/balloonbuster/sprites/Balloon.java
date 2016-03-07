@@ -1,5 +1,6 @@
 package com.christian_peters.balloonbuster.sprites;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
@@ -8,8 +9,13 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 public class Balloon extends Sprite {
     private float velocity;
 
-    public void update(float dt){
+    public Balloon(Texture texture) {
+    	super(texture);
+    	this.velocity = 100f;
+    }
 
+	public void update(float dt){
+		this.translateY(velocity * dt);
     }
 
     public void setVelocity(float velocity){
