@@ -45,7 +45,7 @@ public class PlayScreen implements Screen {
 
 		this.background = new PlayBackground(assetmanager);
 		this.balloons = new PlayBalloons(assetmanager);
-		this.hud = new PlayHUD(batch, assetmanager, this);
+		this.hud = new PlayHUD(batch, assetmanager, game);
 
 	}
 
@@ -67,14 +67,6 @@ public class PlayScreen implements Screen {
 		handleTouch();
 		balloons.update(dt);
 		hud.update(dt);
-	}
-
-	public void gamePause() {
-
-	}
-
-	public void gameResume() {
-
 	}
 
 	public void loadAssets() {

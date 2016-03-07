@@ -21,22 +21,20 @@ import com.christian_peters.balloonbuster.screens.PlayScreen;
  * Created by Chris on 06.03.2016.
  */
 public class PlayHUD {
+	private BalloonBusterGame game;
     private Stage stage;
     private Viewport viewport;
     private float score;
-    private PlayScreen screen;
-    private boolean paused;
     private AssetManager assetmanager;
     private Group playGroup;
     private Label scoreLabel;
     private DecimalFormat formatter;
 
-    public PlayHUD(SpriteBatch batch, AssetManager assetmanager, PlayScreen screen){
-        this.screen = screen;
-        this.assetmanager = assetmanager;
+    public PlayHUD(SpriteBatch batch, AssetManager assetmanager, BalloonBusterGame game){
+        this.game = game;
+    	this.assetmanager = assetmanager;
         this.score = 0;
         this.formatter = new DecimalFormat("#.##");
-        this.paused = false;
         this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
         this.stage = new Stage(viewport, batch);
         
@@ -63,13 +61,5 @@ public class PlayHUD {
 
     public void render(){
     	stage.draw();
-    }
-
-    public void pause(){
-
-    }
-
-    public void resume(){
-
     }
 }
