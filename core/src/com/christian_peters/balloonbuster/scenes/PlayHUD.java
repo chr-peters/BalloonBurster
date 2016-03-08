@@ -59,12 +59,6 @@ public class PlayHUD {
 		initFonts();
 
 		this.playGroup = new Group();
-		
-		// add playbackground
-		Image playBackground = new Image(assetmanager.get(
-				"img/hudBottomBackground.png", Texture.class));
-		playBackground.setSize(BalloonBusterGame.V_WIDTH, 60);
-		playGroup.addActor(playBackground);
 
 		// add score label
 		this.scoreLabel = new Label("Time: " + formatter.format(score) + "s",
