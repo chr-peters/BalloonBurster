@@ -28,13 +28,13 @@ public class PlayBalloons {
 
     public PlayBalloons(AssetManager assetmanager){
         this.assetmanager = assetmanager;
-        this.curDelay = 2f;
+        this.curDelay = 1.5f;
         this.minDelay = 0.25f;
         this.delayChangeFactor = 0.08f;
         this.timeSinceLastBalloon = 0f;
         this.curVelocity = 500f;
         this.maxVelocity = 1300f;
-        this.accelerationFactor = 18f;
+        this.accelerationFactor = 20f;
         this.balloons = new ArrayList<Balloon>();
         this.touched = new ArrayList<Balloon>();
     }
@@ -101,7 +101,7 @@ public class PlayBalloons {
 
     private void addBalloon(){
     	Random r = new Random();
-    	Texture balloonTexture = assetmanager.get("balloon.png", Texture.class);
+    	Texture balloonTexture = assetmanager.get("img/balloon.png", Texture.class);
     	Balloon tmp = new Balloon(balloonTexture);
     	float height = 150f;
     	float balloonAspect = (float)(balloonTexture.getWidth())/balloonTexture.getHeight();

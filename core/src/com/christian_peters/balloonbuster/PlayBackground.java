@@ -20,7 +20,7 @@ public class PlayBackground {
     public PlayBackground(AssetManager assetmanager){
         this.assetmanager = assetmanager;
         //Create Sky
-        Texture skyTexture = assetmanager.get("sky.jpg", Texture.class);
+        Texture skyTexture = assetmanager.get("img/sky.jpg", Texture.class);
         float skyAspect = (float)(skyTexture.getWidth())/skyTexture.getHeight();
         sky = new Sky(skyTexture);
         sky.setSize(BalloonBusterGame.V_HEIGHT*skyAspect, BalloonBusterGame.V_HEIGHT);
@@ -30,7 +30,7 @@ public class PlayBackground {
         clouds = new CloudManager(assetmanager);
         
         //Create Sun
-        Texture sunTexture = assetmanager.get("sun.png", Texture.class);
+        Texture sunTexture = assetmanager.get("img/sun.png", Texture.class);
         float sunAspect = (float)(sunTexture.getWidth())/sunTexture.getHeight();
         sun = new Sun(sunTexture);
         float sunHeight = 150f;

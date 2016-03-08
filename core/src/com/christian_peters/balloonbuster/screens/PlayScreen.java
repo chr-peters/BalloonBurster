@@ -77,12 +77,12 @@ public class PlayScreen implements Screen {
 	}
 
 	public void loadAssets() {
-		assetmanager.load("sky.jpg", Texture.class);
-		assetmanager.load("cloud.png", Texture.class);
-		assetmanager.load("sun.png", Texture.class);
-		assetmanager.load("balloon.png", Texture.class);
-		assetmanager.load("hudBottomBackground.png", Texture.class);
-		assetmanager.load("gameOverBackground.png", Texture.class);
+		assetmanager.load("img/sky.jpg", Texture.class);
+		assetmanager.load("img/cloud.png", Texture.class);
+		assetmanager.load("img/sun.png", Texture.class);
+		assetmanager.load("img/balloon.png", Texture.class);
+		assetmanager.load("img/hudBottomBackground.png", Texture.class);
+		assetmanager.load("img/gameOverBackground.png", Texture.class);
 		assetmanager.finishLoading();
 	}
 

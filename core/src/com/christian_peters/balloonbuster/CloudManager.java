@@ -34,7 +34,7 @@ public class CloudManager {
     
     private void initClouds(){
     	Random r = new Random();
-    	Texture cloudTexture = assetmanager.get("cloud.png", Texture.class);
+    	Texture cloudTexture = assetmanager.get("img/cloud.png", Texture.class);
     	float cloudAspect = (float)(cloudTexture.getWidth())/cloudTexture.getHeight();
     	for(int i=0; i<quantity; i++){
         	Cloud tmp = new Cloud(cloudTexture);
@@ -58,7 +58,7 @@ public class CloudManager {
     
     private void addCloud(){
     	Random r = new Random();
-    	Texture cloudTexture = assetmanager.get("cloud.png", Texture.class);
+    	Texture cloudTexture = assetmanager.get("img/cloud.png", Texture.class);
     	float cloudAspect = (float)(cloudTexture.getWidth())/cloudTexture.getHeight();
     	Cloud tmp = new Cloud(cloudTexture);
 		float height = minHeight + r.nextFloat()*(maxHeight-minHeight);
