@@ -3,10 +3,12 @@ package com.christian_peters.balloonbuster.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -83,6 +85,7 @@ public class PlayScreen implements Screen {
 		assetmanager.load("img/balloon.png", Texture.class);
 		assetmanager.load("img/hudBottomBackground.png", Texture.class);
 		assetmanager.load("img/gameOverBackground.png", Texture.class);
+		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
 		assetmanager.finishLoading();
 	}
 
