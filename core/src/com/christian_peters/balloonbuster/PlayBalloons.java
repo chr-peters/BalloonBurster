@@ -15,9 +15,6 @@ import java.util.Random;
  */
 public class PlayBalloons {
     private boolean paused;
-    private float curQuantity;//Number of Balloons visible at the same time
-    private int maxQuantity;
-    private float quantityChangeFactor;//multiplier of dt in each frame
     private float curDelay;
     private float minDelay;
     private float delayChangeFactor;//multiplier of dt in each frame
@@ -31,16 +28,13 @@ public class PlayBalloons {
 
     public PlayBalloons(AssetManager assetmanager){
         this.assetmanager = assetmanager;
-        this.curQuantity = 4;
-        this.maxQuantity = 10;
-        this.quantityChangeFactor = 0.1f;
-        this.curDelay = 1.5f;
-        this.minDelay = 0.4f;
-        this.delayChangeFactor = 0.1f;
+        this.curDelay = 2f;
+        this.minDelay = 0.25f;
+        this.delayChangeFactor = 0.08f;
         this.timeSinceLastBalloon = 0f;
-        this.curVelocity = 400f;
-        this.maxVelocity = 1000f;
-        this.accelerationFactor = 10f;
+        this.curVelocity = 500f;
+        this.maxVelocity = 1300f;
+        this.accelerationFactor = 18f;
         this.balloons = new ArrayList<Balloon>();
         this.touched = new ArrayList<Balloon>();
     }
@@ -50,7 +44,7 @@ public class PlayBalloons {
     		balloons.remove(b);
     	}
     	
-    	if(balloons.size()<(int)curQuantity && timeSinceLastBalloon>=curDelay){
+    	if(timeSinceLastBalloon>=curDelay){
     		addBalloon();
     		timeSinceLastBalloon = 0f;
     	}
@@ -68,13 +62,8 @@ public class PlayBalloons {
     	} else {
     		curDelay = minDelay;
     	}
-
-    	//Update Quantity
-    	if(curQuantity + quantityChangeFactor*dt<=maxQuantity){
-    		curQuantity += quantityChangeFactor*dt;
-    	} else {
-    		curQuantity = maxQuantity;
-    	}
+    	
+    	System.out.println(curVelocity);
     	
     	for(Balloon b: balloons){
     		b.update(dt);
@@ -112,7 +101,7 @@ public class PlayBalloons {
     	Random r = new Random();
     	Texture balloonTexture = assetmanager.get("balloon.png", Texture.class);
     	Balloon tmp = new Balloon(balloonTexture);
-    	float height = 100f;
+    	float height = 150f;
     	float balloonAspect = (float)(balloonTexture.getWidth())/balloonTexture.getHeight();
     	tmp.setSize(height*balloonAspect, height);
     	tmp.setPosition(r.nextFloat()*(BalloonBusterGame.V_WIDTH-tmp.getWidth()), -1*tmp.getHeight());

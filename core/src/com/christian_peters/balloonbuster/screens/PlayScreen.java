@@ -46,7 +46,6 @@ public class PlayScreen implements Screen {
 		this.background = new PlayBackground(assetmanager);
 		this.balloons = new PlayBalloons(assetmanager);
 		this.hud = new PlayHUD(batch, assetmanager, game);
-
 	}
 
 	@Override
