@@ -27,8 +27,10 @@ public class PlayHUD {
     private float score;
     private AssetManager assetmanager;
     private Group playGroup;
+    private Group gameOverGroup;
     private Label scoreLabel;
     private DecimalFormat formatter;
+    private boolean gameOver;
 
     public PlayHUD(SpriteBatch batch, AssetManager assetmanager, BalloonBusterGame game){
         this.game = game;
@@ -37,6 +39,7 @@ public class PlayHUD {
         this.formatter = new DecimalFormat("#.##");
         this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
         this.stage = new Stage(viewport, batch);
+        this.gameOver = false;
         
         this.playGroup = new Group();
         //add playbackground
@@ -51,15 +54,31 @@ public class PlayHUD {
         scoreLabel.setPosition(6, 3);
         playGroup.addActor(scoreLabel);
         
-        stage.addActor(playGroup);        
+        stage.addActor(playGroup);
+        
+        this.gameOverGroup = new Group();
+        Image gameOverBackground = new Image(assetmanager.get("gameOverBackground.png", Texture.class));
+        gameOverBackground.setSize(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT);
+        gameOverGroup.addActor(gameOverBackground);
+        gameOverGroup.setVisible(false);
+        
+        stage.addActor(gameOverGroup);
     }
 
     public void update(float dt){
-    	score += dt;
-    	scoreLabel.setText("Time: "+formatter.format(score));
+    	if(!gameOver){
+	    	score += dt;
+	    	scoreLabel.setText("Time: "+formatter.format(score));
+    	}
     }
 
     public void render(){
     	stage.draw();
+    }
+    
+    public void gameOver(){
+    	this.gameOver = true;
+    	this.playGroup.setVisible(false);
+    	this.gameOverGroup.setVisible(true);
     }
 }

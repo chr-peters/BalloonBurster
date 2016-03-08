@@ -28,11 +28,13 @@ public class PlayScreen implements Screen {
 	private PlayHUD hud;
 	private OrthographicCamera camera;
 	private Viewport viewport;
+	private boolean gameOver;
 
 	public PlayScreen(BalloonBusterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
+		this.gameOver = false;
 
 		this.camera = new OrthographicCamera();
 		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH,
@@ -66,6 +68,12 @@ public class PlayScreen implements Screen {
 		handleTouch();
 		balloons.update(dt);
 		hud.update(dt);
+		if(!gameOver && balloons.isGameOver()){
+			background.pause();
+			balloons.pause();
+			hud.gameOver();
+			gameOver = true;
+		}
 	}
 
 	public void loadAssets() {
@@ -74,6 +82,7 @@ public class PlayScreen implements Screen {
 		assetmanager.load("sun.png", Texture.class);
 		assetmanager.load("balloon.png", Texture.class);
 		assetmanager.load("hudBottomBackground.png", Texture.class);
+		assetmanager.load("gameOverBackground.png", Texture.class);
 		assetmanager.finishLoading();
 	}
 

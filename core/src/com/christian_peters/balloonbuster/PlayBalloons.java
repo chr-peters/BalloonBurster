@@ -40,6 +40,9 @@ public class PlayBalloons {
     }
 
     public void update(float dt){
+    	if(paused){
+    		return;
+    	}
     	for(Balloon b: touched){
     		balloons.remove(b);
     	}
@@ -62,9 +65,7 @@ public class PlayBalloons {
     	} else {
     		curDelay = minDelay;
     	}
-    	
-    	System.out.println(curVelocity);
-    	
+    	    	
     	for(Balloon b: balloons){
     		b.update(dt);
     	}
@@ -78,15 +79,16 @@ public class PlayBalloons {
     }
 
     public boolean isGameOver(){
+    	for(Balloon b: balloons){
+    		if(b.getY()>= BalloonBusterGame.V_HEIGHT){
+    			return true;
+    		}
+    	}
         return false;
     }
 
     public void pause(){
-
-    }
-
-    public void resume(){
-
+    	this.paused = true;
     }
 
     public void onTouch(float x, float y){

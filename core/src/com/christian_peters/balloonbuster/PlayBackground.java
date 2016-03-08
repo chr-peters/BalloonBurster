@@ -40,9 +40,11 @@ public class PlayBackground {
     }
 
     public void update(float dt){
-    	sky.update(dt);
-    	sun.update(dt);
-    	clouds.update(dt);
+    	if(!paused){
+	    	sky.update(dt);
+	    	sun.update(dt);
+	    	clouds.update(dt);
+    	}
     }
 
     public void render(SpriteBatch batch){
@@ -52,10 +54,6 @@ public class PlayBackground {
     }
 
     public void pause(){
-
-    }
-
-    public void resume(){
-
+    	this.paused = true;
     }
 }
