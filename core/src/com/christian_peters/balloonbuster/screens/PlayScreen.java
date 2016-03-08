@@ -83,7 +83,6 @@ public class PlayScreen implements Screen {
 		assetmanager.load("img/cloud.png", Texture.class);
 		assetmanager.load("img/sun.png", Texture.class);
 		assetmanager.load("img/balloon.png", Texture.class);
-		assetmanager.load("img/hudBottomBackground.png", Texture.class);
 		assetmanager.load("img/gameOverBackground.png", Texture.class);
 		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
 		assetmanager.finishLoading();

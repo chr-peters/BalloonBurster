@@ -116,7 +116,7 @@ public class PlayHUD {
 		this.gameOverGroup.setVisible(true);
 	}
 
-	private void initFonts() {// add this to uml
+	private void initFonts() {
 		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(
 				Gdx.files.internal("skin/ariblk.ttf"));
 		FreeTypeFontGenerator.FreeTypeFontParameter params = new FreeTypeFontGenerator.FreeTypeFontParameter();
