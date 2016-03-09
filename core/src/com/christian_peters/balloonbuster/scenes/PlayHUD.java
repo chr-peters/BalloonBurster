@@ -4,10 +4,8 @@ import java.text.DecimalFormat;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -19,11 +17,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
-import com.christian_peters.balloonbuster.screens.PlayScreen;
 
 /**
  * Created by Chris on 06.03.2016.
@@ -41,7 +37,7 @@ public class PlayHUD {
 										// screen
 	private DecimalFormat formatter;
 	private boolean gameOver;
-	private Skin skin;// add this to uml
+	private Skin skin;
 
 	public PlayHUD(SpriteBatch batch, AssetManager assetmanager,
 			BalloonBusterGame game) {
@@ -141,7 +137,11 @@ public class PlayHUD {
 		this.gameOverGroup.setVisible(true);
 	}
 	
-	public void resize(int width, int height){//add this to uml
+	public void resize(int width, int height){
 		this.viewport.update(width, height);
+	}
+	
+	public void dispose(){
+		stage.dispose();
 	}
 }

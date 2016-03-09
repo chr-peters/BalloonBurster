@@ -51,4 +51,10 @@ public class BalloonBusterGame extends Game {
 	public AssetManager getAssetManager(){
 		return this.assetmanager;
 	}
+	
+	@Override
+	public void dispose(){
+		this.assetmanager.dispose();
+		this.batch.dispose();
+	}
 }

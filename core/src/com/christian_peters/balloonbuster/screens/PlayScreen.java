@@ -3,7 +3,6 @@ package com.christian_peters.balloonbuster.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -80,11 +79,13 @@ public class PlayScreen implements Screen {
 
 	public void loadAssets() {
 		assetmanager.load("img/sky.jpg", Texture.class);
-		assetmanager.load("img/cloudMarius.png", Texture.class);
+		assetmanager.load("img/clouds/cloud01.png", Texture.class);
+		assetmanager.load("img/clouds/cloud02.png", Texture.class);
+		assetmanager.load("img/clouds/cloud03.png", Texture.class);
 		assetmanager.load("img/sun.png", Texture.class);
-		assetmanager.load("img/balloonMarius.png", Texture.class);
 		assetmanager.load("img/gameOverBackground.png", Texture.class);
 		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
+		assetmanager.load("img/balloons/balloon_red.atlas", TextureAtlas.class);
 		assetmanager.finishLoading();
 	}
 
@@ -126,6 +127,6 @@ public class PlayScreen implements Screen {
 
 	@Override
 	public void dispose() {
-
+		hud.dispose();
 	}
 }
