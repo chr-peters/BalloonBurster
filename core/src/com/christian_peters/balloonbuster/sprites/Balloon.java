@@ -16,7 +16,7 @@ public class Balloon extends Sprite {
     
     public Balloon(Array<TextureAtlas.AtlasRegion> frames, float height){
     	this.timePassed = 0;
-    	anim = new Animation(0.15f, frames);
+    	anim = new Animation(0.12f, frames);
     	anim.setPlayMode(PlayMode.LOOP);
     	super.setRegion(anim.getKeyFrame(timePassed));
     	float aspect = (float)(super.getRegionWidth())/super.getRegionHeight();
