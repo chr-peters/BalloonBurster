@@ -1,16 +1,13 @@
 package com.christian_peters.balloonbuster;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.christian_peters.balloonbuster.sprites.Balloon;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.christian_peters.balloonbuster.sprites.Balloon;
 
 /**
  * Created by Chris on 06.03.2016.
