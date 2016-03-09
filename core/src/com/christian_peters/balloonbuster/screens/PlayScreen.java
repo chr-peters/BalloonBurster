@@ -89,7 +89,7 @@ public class PlayScreen implements Screen {
 	}
 
 	private void handleTouch() {
-		if (Gdx.input.isTouched()) {
+		if (Gdx.input.justTouched()) {
 			Vector3 worldKoors = camera.unproject(new Vector3(Gdx.input.getX(),
 					Gdx.input.getY(), 0), viewport.getScreenX(), viewport
 					.getScreenY(), viewport.getScreenWidth(), viewport
@@ -106,6 +106,7 @@ public class PlayScreen implements Screen {
 	@Override
 	public void resize(int width, int height) {
 		this.viewport.update(width, height);
+		hud.resize(width, height);
 	}
 
 	@Override

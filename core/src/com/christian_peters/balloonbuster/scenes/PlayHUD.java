@@ -12,12 +12,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
@@ -41,10 +44,6 @@ public class PlayHUD {
 	private boolean gameOver;
 	private Skin skin;// add this to uml
 
-	// fonts
-	private BitmapFont ariblk50;
-	private BitmapFont ariblk90;
-
 	public PlayHUD(SpriteBatch batch, AssetManager assetmanager,
 			BalloonBusterGame game) {
 		this.game = game;
@@ -56,20 +55,24 @@ public class PlayHUD {
 		this.stage = new Stage(viewport, batch);
 		this.gameOver = false;
 
-		initFonts();
+		//Create Skin
+		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"), assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));
 
 		this.playGroup = new Group();
 
 		// add score label
 		this.scoreLabel = new Label("Time: " + formatter.format(score) + "s",
-				new Label.LabelStyle(ariblk50, Color.BLACK));
+				skin);
 		scoreLabel.setHeight(50);
 		scoreLabel.setPosition(6, 3);
 		playGroup.addActor(scoreLabel);
+		
+		playGroup.setSize(stage.getWidth(), stage.getHeight());
 
 		stage.addActor(playGroup);
 
 		this.gameOverGroup = new Group();
+		gameOverGroup.setSize(stage.getWidth(), stage.getHeight());
 		// add gameOverBackground
 		Image gameOverBackground = new Image(assetmanager.get(
 				"img/gameOverBackground.png", Texture.class));
@@ -79,22 +82,44 @@ public class PlayHUD {
 
 		// add Layout and Widgets
 		Table table = new Table();
+		table.setFillParent(true);
 		table.top();
-		table.setSize(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT);
+		table.padTop(250);
 
-		Label gameOverLabel = new Label("Game Over!", new Label.LabelStyle(
-				ariblk90, Color.BLACK));
-		table.add(gameOverLabel).expandX().padTop(250);
+		Label gameOverLabel = new Label("Game Over!", skin, "large");
+		table.add(gameOverLabel).colspan(2).expandX();
 		table.row();
 		gameOverScoreLabel = new Label("Your Time: " + formatter.format(score)
-				+ "s", new Label.LabelStyle(ariblk50, Color.BLACK));
-		table.add(gameOverScoreLabel).expandX().padTop(50);
-		table.row();
+				+ "s", skin);
+		table.add(gameOverScoreLabel).colspan(2).expandX().padTop(50);
+		
+		table.row().expandX().padTop(50);
+		
+		TextButton restartButton = new TextButton("Restart", skin);
+		restartButton.pad(5);
+		restartButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				PlayHUD.this.game.startGame();
+			}
+		});
+		table.add(restartButton);
+		
+		
+		TextButton mainMenuButton = new TextButton("Menu", skin);
+		mainMenuButton.pad(5);
+		mainMenuButton.addListener(new ClickListener(){
+			public void clicked(InputEvent event, float x, float y){
+				//TODO go to main menu
+			}
+		});
+		table.add(mainMenuButton);
 
 		gameOverGroup.addActor(table);// For debugging reasons
 
 		gameOverGroup.setVisible(false);
 		stage.addActor(gameOverGroup);
+		
+		Gdx.input.setInputProcessor(stage);
 	}
 
 	public void update(float dt) {
@@ -102,6 +127,7 @@ public class PlayHUD {
 			score += dt;
 			scoreLabel.setText("Time: " + formatter.format(score) + "s");
 		}
+		stage.act(dt);
 	}
 
 	public void render() {
@@ -115,16 +141,8 @@ public class PlayHUD {
 				+ "s");
 		this.gameOverGroup.setVisible(true);
 	}
-
-	private void initFonts() {
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(
-				Gdx.files.internal("skin/ariblk.ttf"));
-		FreeTypeFontGenerator.FreeTypeFontParameter params = new FreeTypeFontGenerator.FreeTypeFontParameter();
-		params.size = 50;
-		params.color = Color.BLACK;
-		this.ariblk50 = generator.generateFont(params);
-
-		params.size = 90;
-		this.ariblk90 = generator.generateFont(params);
+	
+	public void resize(int width, int height){//add this to uml
+		this.viewport.update(width, height);
 	}
 }
