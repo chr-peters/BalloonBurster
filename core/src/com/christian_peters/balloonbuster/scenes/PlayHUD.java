@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -42,7 +41,7 @@ public class PlayHUD {
 										// screen
 	private DecimalFormat formatter;
 	private boolean gameOver;
-	private Skin skin;// add this to uml
+	private Skin skin;
 
 	public PlayHUD(SpriteBatch batch, AssetManager assetmanager,
 			BalloonBusterGame game) {
@@ -142,7 +141,7 @@ public class PlayHUD {
 		this.gameOverGroup.setVisible(true);
 	}
 	
-	public void resize(int width, int height){//add this to uml
+	public void resize(int width, int height){
 		this.viewport.update(width, height);
 	}
 }

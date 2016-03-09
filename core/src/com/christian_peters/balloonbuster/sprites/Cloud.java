@@ -25,6 +25,9 @@ public class Cloud extends Sprite {
     }
 
     public void setDirection(boolean movingRight){
+    	if(!movingRight){
+    		super.flip(true, false);
+    	}
         this.movingRight = movingRight;
     }
     
