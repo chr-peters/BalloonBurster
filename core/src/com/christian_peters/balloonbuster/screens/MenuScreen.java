@@ -29,13 +29,13 @@ public class MenuScreen implements Screen{
 		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, camera);
 		camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
 		camera.update();
-		//TODO create hud
+		this.hud = new MenuHUD(batch, assetmanager, game);
 		this.background = new MenuBackground(assetmanager);
 	}
 	
 	public void update (float dt){
 		background.update(dt);
-		//TODO update hud
+		hud.update(dt);
 	}
 
 	@Override
@@ -53,12 +53,13 @@ public class MenuScreen implements Screen{
 		batch.begin();
 		background.render(batch);
 		batch.end();
-		//TODO render hud
+		hud.render();
 	}
 
 	@Override
 	public void resize(int width, int height) {
 		this.viewport.update(width, height);
+		hud.resize(width, height);
 	}
 
 	@Override
@@ -81,7 +82,6 @@ public class MenuScreen implements Screen{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		
+		hud.dispose();
 	}
 }

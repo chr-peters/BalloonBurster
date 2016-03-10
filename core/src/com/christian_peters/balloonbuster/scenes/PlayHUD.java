@@ -104,7 +104,7 @@ public class PlayHUD {
 		mainMenuButton.pad(5);
 		mainMenuButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
-				//TODO go to main menu
+				PlayHUD.this.game.startMenu();
 			}
 		});
 		table.add(mainMenuButton);

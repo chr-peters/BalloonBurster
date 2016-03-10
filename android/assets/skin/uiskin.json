@@ -12,6 +12,7 @@ com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 },
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: { font: default-font, fontColor: black },
-	large: {font: large-font, fontColor: black }
+	large: {font: large-font, fontColor: black },
+	logo: {font: large-font, fontColor: white }
 },
 }
