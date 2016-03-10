@@ -44,8 +44,6 @@ public class PlayScreen implements Screen {
 				BalloonBusterGame.V_HEIGHT / 2);
 		camera.update();
 
-		loadAssets();
-
 		this.background = new PlayBackground(assetmanager);
 		this.balloons = new PlayBalloons(assetmanager);
 		this.hud = new PlayHUD(batch, assetmanager, game);
@@ -75,18 +73,6 @@ public class PlayScreen implements Screen {
 			hud.gameOver();
 			gameOver = true;
 		}
-	}
-
-	public void loadAssets() {
-		assetmanager.load("img/sky.jpg", Texture.class);
-		assetmanager.load("img/clouds/cloud01.png", Texture.class);
-		assetmanager.load("img/clouds/cloud02.png", Texture.class);
-		assetmanager.load("img/clouds/cloud03.png", Texture.class);
-		assetmanager.load("img/sun.png", Texture.class);
-		assetmanager.load("img/gameOverBackground.png", Texture.class);
-		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
-		assetmanager.load("img/balloons/balloon_red.atlas", TextureAtlas.class);
-		assetmanager.finishLoading();
 	}
 
 	private void handleTouch() {

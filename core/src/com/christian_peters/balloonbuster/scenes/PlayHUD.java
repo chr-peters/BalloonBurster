@@ -109,7 +109,7 @@ public class PlayHUD {
 		});
 		table.add(mainMenuButton);
 
-		gameOverGroup.addActor(table);// For debugging reasons
+		gameOverGroup.addActor(table);
 
 		gameOverGroup.setVisible(false);
 		stage.addActor(gameOverGroup);
