@@ -9,14 +9,14 @@ import com.christian_peters.balloonbuster.sprites.Sun;
 /**
  * Created by Chris on 06.03.2016.
  */
-public class PlayBackground {
+public class Background {
     private boolean paused;
     private CloudManager clouds;
     private Sun sun;
     private Sky sky;
     private AssetManager assetmanager;
 
-    public PlayBackground(AssetManager assetmanager){
+    public Background(AssetManager assetmanager){
         this.assetmanager = assetmanager;
         //Create Sky
         Texture skyTexture = assetmanager.get("img/sky.jpg", Texture.class);

@@ -8,14 +8,16 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonbuster.Background;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
-import com.christian_peters.balloonbuster.MenuBackground;
+import com.christian_peters.balloonbuster.MenuBalloons;
 import com.christian_peters.balloonbuster.scenes.MenuHUD;
 
 public class MenuScreen implements Screen{
 	private BalloonBusterGame game;
 	private MenuHUD hud;
-	private MenuBackground background;
+	private Background background;
+	private MenuBalloons balloons;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
@@ -30,11 +32,13 @@ public class MenuScreen implements Screen{
 		camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
 		camera.update();
 		this.hud = new MenuHUD(batch, assetmanager, game);
-		this.background = new MenuBackground(assetmanager);
+		this.background = new Background(assetmanager);
+		this.balloons = new MenuBalloons(assetmanager);
 	}
 	
 	public void update (float dt){
 		background.update(dt);
+		balloons.update(dt);
 		hud.update(dt);
 	}
 
@@ -52,6 +56,7 @@ public class MenuScreen implements Screen{
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		background.render(batch);
+		balloons.render(batch);
 		batch.end();
 		hud.render();
 	}

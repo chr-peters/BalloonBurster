@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
-import com.christian_peters.balloonbuster.PlayBackground;
+import com.christian_peters.balloonbuster.Background;
 import com.christian_peters.balloonbuster.PlayBalloons;
 import com.christian_peters.balloonbuster.scenes.PlayHUD;
 
@@ -24,7 +24,7 @@ public class PlayScreen implements Screen {
 	private BalloonBusterGame game;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
-	private PlayBackground background;
+	private Background background;
 	private PlayBalloons balloons;
 	private PlayHUD hud;
 	private OrthographicCamera camera;
@@ -44,7 +44,7 @@ public class PlayScreen implements Screen {
 				BalloonBusterGame.V_HEIGHT / 2);
 		camera.update();
 
-		this.background = new PlayBackground(assetmanager);
+		this.background = new Background(assetmanager);
 		this.balloons = new PlayBalloons(assetmanager);
 		this.hud = new PlayHUD(batch, assetmanager, game);
 	}

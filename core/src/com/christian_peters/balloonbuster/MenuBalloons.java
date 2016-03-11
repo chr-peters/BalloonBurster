@@ -5,53 +5,23 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.christian_peters.balloonbuster.sprites.Balloon;
-import com.christian_peters.balloonbuster.sprites.Sky;
-import com.christian_peters.balloonbuster.sprites.Sun;
 
-public class MenuBackground {
-	private CloudManager clouds;
-	private Sun sun;
-	private Sky sky;
-	private List<Balloon> balloons;
+public class MenuBalloons {
 	private AssetManager assetmanager;
-
+	
 	private float balloonMinHeight;
 	private float balloonMaxHeight;
 	private int balloonQuantity;
 	private float balloonMinVelocity;
 	private float balloonMaxVelocity;
-
-	public MenuBackground(AssetManager assetmanager) {
+	private List<Balloon> balloons;
+	
+	public MenuBalloons (AssetManager assetmanager){
+		
 		this.assetmanager = assetmanager;
-
-		// Create Sky
-		Texture skyTexture = assetmanager.get("img/sky.jpg", Texture.class);
-		float skyAspect = (float) (skyTexture.getWidth())
-				/ skyTexture.getHeight();
-		sky = new Sky(skyTexture);
-		sky.setSize(BalloonBusterGame.V_HEIGHT * skyAspect,
-				BalloonBusterGame.V_HEIGHT);
-		sky.setCenter(BalloonBusterGame.V_WIDTH / 2,
-				BalloonBusterGame.V_HEIGHT / 2);
-
-		// Create Clouds
-		clouds = new CloudManager(assetmanager);
-
-		// Create Sun
-		Texture sunTexture = assetmanager.get("img/sun.png", Texture.class);
-		float sunAspect = (float) (sunTexture.getWidth())
-				/ sunTexture.getHeight();
-		sun = new Sun(sunTexture);
-		float sunHeight = 150f;
-		sun.setSize(sunHeight * sunAspect, sunHeight);
-		sun.setCenter(BalloonBusterGame.V_WIDTH * 0.8f, 1100f);
-		sun.setOrigin(sun.getWidth() / 2, sun.getHeight() / 2);
-
-		// Create Balloons
 		this.balloonMinHeight = 50;
 		this.balloonMaxHeight = 100;
 		this.balloonQuantity = 10;
@@ -108,13 +78,8 @@ public class MenuBackground {
 		tmp.setVelocity(balloonMinVelocity + r.nextFloat()*(balloonMaxVelocity-balloonMinVelocity));
 		balloons.add(tmp);
 	}
-
-	public void update(float dt) {
-		sky.update(dt);
-		sun.update(dt);
-		clouds.update(dt);
-		
-		//Update Balloons
+	
+	public void update(float dt){
 		List<Balloon> invisible = new ArrayList<Balloon>();
 		for(Balloon b: balloons){
 			if(isVisible(b)){
@@ -129,13 +94,8 @@ public class MenuBackground {
 			addBalloon();
 		}
 	}
-
-	public void render(SpriteBatch batch) {
-		sky.draw(batch);
-		sun.draw(batch);
-		clouds.render(batch);
-		
-		//Render Balloons
+	
+	public void render (SpriteBatch batch){
 		for(Balloon b: balloons){
 			b.draw(batch);
 		}
