@@ -21,6 +21,8 @@ public class ScoreManager {
 		} catch (Exception e) {
 			scores = new ArrayList<Score>();
 		}
+		Collections.sort(scores);
+		Collections.reverse(scores);
 	}
 	
 	public Score get(int position){

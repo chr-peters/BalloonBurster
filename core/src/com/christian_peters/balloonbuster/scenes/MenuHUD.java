@@ -54,6 +54,14 @@ public class MenuHUD {
 		table.row();
 		
 		TextButton scoreButton = new TextButton("Score", skin);
+		scoreButton.addListener(new ClickListener(){
+
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				MenuHUD.this.game.startScore();
+			}
+			
+		});
 		table.add(scoreButton).expandX().padTop(50).size(400, 70);
 		
 		stage.addActor(table);

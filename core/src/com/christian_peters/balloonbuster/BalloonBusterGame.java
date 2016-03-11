@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.christian_peters.balloonbuster.screens.MenuScreen;
 import com.christian_peters.balloonbuster.screens.PlayScreen;
+import com.christian_peters.balloonbuster.screens.ScoreScreen;
 
 public class BalloonBusterGame extends Game {
 	public static float V_WIDTH;//Not final due to later changes
@@ -44,9 +45,9 @@ public class BalloonBusterGame extends Game {
 		//To be executed from the loading-screen
 		setScreen(new MenuScreen(this));
 	}
-
-	public void gameOver(){
-
+	
+	public void startScore(){
+		setScreen(new ScoreScreen(this));
 	}
 
 	@Override
