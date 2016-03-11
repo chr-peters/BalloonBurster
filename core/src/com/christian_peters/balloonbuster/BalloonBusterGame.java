@@ -18,12 +18,14 @@ public class BalloonBusterGame extends Game {
 
 	private SpriteBatch batch;
 	private AssetManager assetmanager;
+	private ScoreManager scores;
 
 
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		assetmanager = new AssetManager();
+		this.batch = new SpriteBatch();
+		this.assetmanager = new AssetManager();
+		this.scores = new ScoreManager(Gdx.files.local("scores.json"), 10);
 
 		float aspectRatio = (float)(Gdx.graphics.getWidth())/Gdx.graphics.getHeight();
 		V_HEIGHT = 1280f;
