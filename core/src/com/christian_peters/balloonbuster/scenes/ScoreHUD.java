@@ -67,7 +67,16 @@ public class ScoreHUD {
 			}
 		}
 		
-		table.row();
+		//set Background
+		Pixmap pm = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+		pm.setColor(1, 1, 1, 0.3f);
+		pm.fill();
+		table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pm))));
+		table.pack();
+		
+		table.setWidth(BalloonBusterGame.V_WIDTH*0.8f);
+		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2, Align.center);
+		
 		TextButton menu = new TextButton("Menu", skin);
 		menu.addListener(new ClickListener(){
 
@@ -77,18 +86,11 @@ public class ScoreHUD {
 			}
 			
 		});
-		table.add(menu).colspan(3).expandX();
+		menu.setSize(300, 70);
+		menu.setPosition(BalloonBusterGame.V_WIDTH/2, table.getY()-50, Align.top | Align.center);
 		
-		//set Background
-		Pixmap pm = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
-		pm.setColor(1, 1, 1, 0.3f);
-		pm.fill();
-		table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pm))));
-		table.pack();
-		
-		table.setWidth(game.V_WIDTH*0.8f);
-		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2, Align.center);
 		stage.addActor(table);
+		stage.addActor(menu);
 		
 		Gdx.input.setInputProcessor(stage);
 	}
