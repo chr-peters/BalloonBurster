@@ -33,13 +33,13 @@ public class ScoreHUD {
 	private ScoreManager scores;
 	private DecimalFormat formatter;// add this to uml
 	
-	public ScoreHUD(SpriteBatch batch, AssetManager assetmanager, BalloonBusterGame game){
+	public ScoreHUD(BalloonBusterGame game){
 		this.game = game;
-		this.assetmanager = assetmanager;
+		this.assetmanager = game.getAssetManager();
 		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
 		this.scores = game.getScoreManager();
 		this.formatter = new DecimalFormat("0.00");
-		this.stage = new Stage(viewport, batch);
+		this.stage = new Stage(viewport, game.getSpriteBatch());
 		
 		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"), assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));
 		
@@ -66,7 +66,7 @@ public class ScoreHUD {
 				table.add(score);
 			}
 		}
-		
+				
 		//set Background
 		Pixmap pm = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
 		pm.setColor(1, 1, 1, 0.3f);
@@ -76,7 +76,6 @@ public class ScoreHUD {
 		
 		table.setWidth(BalloonBusterGame.V_WIDTH*0.8f);
 		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2, Align.center);
-		
 		TextButton menu = new TextButton("Menu", skin);
 		menu.addListener(new ClickListener(){
 

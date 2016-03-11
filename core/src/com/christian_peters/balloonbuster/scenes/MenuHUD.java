@@ -23,11 +23,11 @@ public class MenuHUD {
 	private Skin skin;
 	private AssetManager assetmanager;
 	
-	public MenuHUD (SpriteBatch batch, AssetManager assetmanager, BalloonBusterGame game){
+	public MenuHUD (BalloonBusterGame game){
 		this.game = game;
-		this.assetmanager = assetmanager;
+		this.assetmanager = game.getAssetManager();
 		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
-		this.stage = new Stage(viewport, batch);
+		this.stage = new Stage(viewport, game.getSpriteBatch());
 		
 		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"), assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));
 		

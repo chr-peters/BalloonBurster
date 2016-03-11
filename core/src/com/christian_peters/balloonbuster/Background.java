@@ -18,22 +18,16 @@ public class Background {
 
     public Background(AssetManager assetmanager){
         this.assetmanager = assetmanager;
+        
         //Create Sky
-        Texture skyTexture = assetmanager.get("img/sky.jpg", Texture.class);
-        float skyAspect = (float)(skyTexture.getWidth())/skyTexture.getHeight();
-        sky = new Sky(skyTexture);
-        sky.setSize(BalloonBusterGame.V_HEIGHT*skyAspect, BalloonBusterGame.V_HEIGHT);
+        sky = new Sky(assetmanager.get("img/sky.jpg", Texture.class), BalloonBusterGame.V_HEIGHT);
         sky.setCenter(BalloonBusterGame.V_WIDTH / 2, BalloonBusterGame.V_HEIGHT / 2);
         
         //Create Clouds
         clouds = new CloudManager(assetmanager);
         
         //Create Sun
-        Texture sunTexture = assetmanager.get("img/sun.png", Texture.class);
-        float sunAspect = (float)(sunTexture.getWidth())/sunTexture.getHeight();
-        sun = new Sun(sunTexture);
-        float sunHeight = 150f;
-        sun.setSize(sunHeight*sunAspect, sunHeight);
+        sun = new Sun(assetmanager.get("img/sun.png", Texture.class), 150);
         sun.setCenter(BalloonBusterGame.V_WIDTH*0.8f, 1100f);
         sun.setOrigin(sun.getWidth()/2, sun.getHeight()/2);
     }

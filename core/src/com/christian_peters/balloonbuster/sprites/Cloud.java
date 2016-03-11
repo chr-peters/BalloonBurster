@@ -10,8 +10,12 @@ public class Cloud extends Sprite {
     private boolean movingRight;
     private float velocity;
     
-    public Cloud(Texture texture){
+    public Cloud(Texture texture, float height){
     	super(texture);
+    	
+    	float aspect = super.getWidth()/super.getHeight();
+    	setSize(height*aspect, height);
+    	
     	this.movingRight = false;
     	this.velocity = 7f;//default
     }

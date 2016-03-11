@@ -37,11 +37,7 @@ public class CloudManager {
     	Texture cloudTexture;
     	float cloudAspect;
     	for(int i=0; i<quantity; i++){
-    		cloudTexture  = getRandomCloudTexture();
-    		cloudAspect = (float)(cloudTexture.getWidth())/cloudTexture.getHeight();
-        	Cloud tmp = new Cloud(cloudTexture);
-    		float height = minHeight + r.nextFloat()*(maxHeight-minHeight);
-    		tmp.setSize(height*cloudAspect, height);
+        	Cloud tmp = new Cloud(getRandomCloudTexture(), minHeight + r.nextFloat()*(maxHeight-minHeight));
     		tmp.setX(r.nextInt((int) (BalloonBusterGame.V_WIDTH-tmp.getWidth())));
     		tmp.setY(BalloonBusterGame.V_HEIGHT/3 + r.nextInt((int)(BalloonBusterGame.V_HEIGHT*2/3 - tmp.getHeight())));
     		tmp.setDirection(r.nextBoolean());
@@ -60,11 +56,7 @@ public class CloudManager {
     
     private void addCloud(){
     	Random r = new Random();
-    	Texture cloudTexture = getRandomCloudTexture();
-    	float cloudAspect = (float)(cloudTexture.getWidth())/cloudTexture.getHeight();
-    	Cloud tmp = new Cloud(cloudTexture);
-		float height = minHeight + r.nextFloat()*(maxHeight-minHeight);
-		tmp.setSize(height*cloudAspect, height);
+    	Cloud tmp = new Cloud(getRandomCloudTexture(), minHeight + r.nextFloat()*(maxHeight-minHeight));
 		if(r.nextBoolean()){//add a new cloud at the right border and make it move to the left
 			tmp.setX(BalloonBusterGame.V_WIDTH);
 			tmp.setDirection(false);

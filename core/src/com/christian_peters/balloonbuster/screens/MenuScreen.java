@@ -31,7 +31,7 @@ public class MenuScreen implements Screen{
 		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, camera);
 		camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
 		camera.update();
-		this.hud = new MenuHUD(batch, assetmanager, game);
+		this.hud = new MenuHUD(game);
 		this.background = new Background(assetmanager);
 		this.balloons = new MenuBalloons(assetmanager);
 	}

@@ -9,8 +9,12 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 public class Sun extends Sprite {
 	private float rotationVelocity;	
 	
-    public Sun(Texture texture) {
+    public Sun(Texture texture, float height) {
     	super(texture);
+    	
+    	float aspect = super.getWidth()/super.getHeight();
+    	setSize(height*aspect, height);
+    	
     	this.rotationVelocity = 7f;
     }
 

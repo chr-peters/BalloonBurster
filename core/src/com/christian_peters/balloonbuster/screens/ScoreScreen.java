@@ -37,7 +37,7 @@ public class ScoreScreen implements Screen{
 
 		this.background = new Background(assetmanager);
 		this.balloons = new MenuBalloons(assetmanager);
-		this.hud = new ScoreHUD(batch, assetmanager, game);
+		this.hud = new ScoreHUD(game);
 	}
 	
 	public void update(float dt){
