@@ -74,6 +74,10 @@ public class BalloonBusterGame extends Game {
 		return this.assetmanager;
 	}
 	
+	public ScoreManager getScoreManager(){
+		return this.scores;
+	}
+	
 	@Override
 	public void dispose(){
 		this.assetmanager.dispose();

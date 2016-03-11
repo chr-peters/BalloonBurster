@@ -16,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -35,6 +36,7 @@ public class PlayHUD {
 	private Label scoreLabel;
 	private Label gameOverScoreLabel;// To store the score for the gameover
 										// screen
+	private TextField nameField;//add this to uml
 	private DecimalFormat formatter;
 	private boolean gameOver;
 	private Skin skin;
@@ -89,11 +91,19 @@ public class PlayHUD {
 		table.add(gameOverScoreLabel).colspan(2).expandX().padTop(50);
 		
 		table.row().expandX().padTop(50);
+		Label nameLabel = new Label("Your Name:", skin);
+		table.add(nameLabel).expandX();
+		
+		this.nameField = new TextField("nameless", skin);
+		table.add(nameField).expandX().width(350);
+		
+		table.row().expandX().padTop(50);
 		
 		TextButton restartButton = new TextButton("Restart", skin);
 		restartButton.pad(5);
 		restartButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
+				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				PlayHUD.this.game.startGame();
 			}
 		});
@@ -104,6 +114,7 @@ public class PlayHUD {
 		mainMenuButton.pad(5);
 		mainMenuButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
+				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				PlayHUD.this.game.startMenu();
 			}
 		});
