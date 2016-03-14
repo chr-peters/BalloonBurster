@@ -108,6 +108,7 @@ public class PlayHUD {
 		restartButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
+				prefs.flush();
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				PlayHUD.this.game.startGame();
 			}
@@ -120,6 +121,7 @@ public class PlayHUD {
 		mainMenuButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
+				prefs.flush();
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				PlayHUD.this.game.startMenu();
 			}
