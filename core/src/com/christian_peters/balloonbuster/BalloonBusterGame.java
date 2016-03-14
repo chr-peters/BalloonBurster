@@ -63,7 +63,7 @@ public class BalloonBusterGame extends Game {
 		assetmanager.load("img/sun.png", Texture.class);
 		assetmanager.load("img/gameOverBackground.png", Texture.class);
 		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
-		assetmanager.load("img/balloons/balloon_red.atlas", TextureAtlas.class);
+		assetmanager.load("img/balloons/balloons.atlas", TextureAtlas.class);
 		assetmanager.finishLoading();
 	}
 

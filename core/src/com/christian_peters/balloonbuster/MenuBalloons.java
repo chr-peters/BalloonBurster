@@ -39,7 +39,7 @@ public class MenuBalloons {
 		for (int i = 0; i < balloonQuantity; i++) {
 			float tmpHeight = balloonMinHeight + r.nextFloat()
 					* (balloonMaxHeight - balloonMinHeight);
-			tmp = new Balloon(assetmanager.get("img/balloons/balloon_red.atlas",
+			tmp = new Balloon(assetmanager.get("img/balloons/balloons.atlas",
 					TextureAtlas.class).getRegions(), tmpHeight);
 			tmp.setPosition(
 					r.nextFloat()
@@ -69,7 +69,7 @@ public class MenuBalloons {
 		Balloon tmp;
 		float tmpHeight = balloonMinHeight + r.nextFloat()
 				* (balloonMaxHeight - balloonMinHeight);
-		tmp = new Balloon(assetmanager.get("img/balloons/balloon_red.atlas",
+		tmp = new Balloon(assetmanager.get("img/balloons/balloons.atlas",
 				TextureAtlas.class).getRegions(), tmpHeight);
 		tmp.setPosition(
 				r.nextFloat()

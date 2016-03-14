@@ -104,7 +104,7 @@ public class PlayBalloons {
 
 	private void addBalloon() {
 		Random r = new Random();
-		Balloon tmp = new Balloon(assetmanager.get("img/balloons/balloon_red.atlas",
+		Balloon tmp = new Balloon(assetmanager.get("img/balloons/balloons.atlas",
 				TextureAtlas.class).getRegions(), this.balloonHeight);
 		tmp.setPosition(
 				r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),

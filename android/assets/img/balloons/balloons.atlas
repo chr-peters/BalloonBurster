@@ -1,0 +1,54 @@
+
+balloons.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Rot1
+  rotate: false
+  xy: 2, 2
+  size: 281, 572
+  orig: 281, 572
+  offset: 0, 0
+  index: -1
+Rot2
+  rotate: false
+  xy: 285, 2
+  size: 281, 572
+  orig: 281, 572
+  offset: 0, 0
+  index: -1
+Rot3
+  rotate: false
+  xy: 568, 2
+  size: 281, 572
+  orig: 281, 572
+  offset: 0, 0
+  index: -1
+
+balloons2.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Rot4
+  rotate: false
+  xy: 2, 2
+  size: 281, 572
+  orig: 281, 572
+  offset: 0, 0
+  index: -1
+Rot5
+  rotate: false
+  xy: 285, 2
+  size: 281, 572
+  orig: 281, 572
+  offset: 0, 0
+  index: -1
+Rot6
+  rotate: false
+  xy: 568, 2
+  size: 281, 572
+  orig: 281, 572
+  offset: 0, 0
+  index: -1
