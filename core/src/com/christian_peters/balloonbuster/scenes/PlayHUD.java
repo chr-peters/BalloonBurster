@@ -37,11 +37,11 @@ public class PlayHUD {
 	private Label scoreLabel;
 	private Label gameOverScoreLabel;// To store the score for the gameover
 										// screen
-	private TextField nameField;//add this to uml
+	private TextField nameField;
 	private DecimalFormat formatter;
 	private boolean gameOver;
 	private Skin skin;
-	private Preferences prefs;//add this to uml
+	private Preferences prefs;
 
 	public PlayHUD(BalloonBusterGame game) {
 		this.game = game;

@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.christian_peters.balloonbuster.screens.LoadingScreen;
 import com.christian_peters.balloonbuster.screens.MenuScreen;
 import com.christian_peters.balloonbuster.screens.PlayScreen;
 import com.christian_peters.balloonbuster.screens.ScoreScreen;
@@ -33,7 +34,7 @@ public class BalloonBusterGame extends Game {
 		V_WIDTH = V_HEIGHT*aspectRatio;
 		
 		loadAssets();
-		startMenu();
+		setScreen(new LoadingScreen(this));
 	}
 
 	public void startGame(){
@@ -64,7 +65,6 @@ public class BalloonBusterGame extends Game {
 		assetmanager.load("img/gameOverBackground.png", Texture.class);
 		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
 		assetmanager.load("img/balloons/balloons.atlas", TextureAtlas.class);
-		assetmanager.finishLoading();
 	}
 
 	public SpriteBatch getSpriteBatch(){
