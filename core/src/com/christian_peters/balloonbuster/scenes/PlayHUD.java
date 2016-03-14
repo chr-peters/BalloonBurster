@@ -3,6 +3,7 @@ package com.christian_peters.balloonbuster.scenes;
 import java.text.DecimalFormat;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -40,6 +41,7 @@ public class PlayHUD {
 	private DecimalFormat formatter;
 	private boolean gameOver;
 	private Skin skin;
+	private Preferences prefs;//add this to uml
 
 	public PlayHUD(BalloonBusterGame game) {
 		this.game = game;
@@ -93,7 +95,10 @@ public class PlayHUD {
 		Label nameLabel = new Label("Your Name:", skin);
 		table.add(nameLabel).expandX();
 		
-		this.nameField = new TextField("nameless", skin);
+		//add name field with default name from preferences
+		this.prefs = Gdx.app.getPreferences("settings");
+		String name = prefs.getString("name", "nameless");
+		this.nameField = new TextField(name, skin);
 		table.add(nameField).expandX().width(350);
 		
 		table.row().expandX().padTop(50);
@@ -102,6 +107,7 @@ public class PlayHUD {
 		restartButton.pad(5);
 		restartButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
+				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				PlayHUD.this.game.startGame();
 			}
@@ -113,6 +119,7 @@ public class PlayHUD {
 		mainMenuButton.pad(5);
 		mainMenuButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
+				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				PlayHUD.this.game.startMenu();
 			}
