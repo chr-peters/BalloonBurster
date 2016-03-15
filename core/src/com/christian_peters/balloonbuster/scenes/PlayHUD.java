@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
@@ -86,20 +87,23 @@ public class PlayHUD {
 
 		Label gameOverLabel = new Label("Game Over!", skin, "large");
 		table.add(gameOverLabel).colspan(2).expandX();
-		table.row();
-		gameOverScoreLabel = new Label("Your Time: " + formatter.format(score)
+		table.row().padTop(50);
+		
+		Label yourTimeLabel = new Label("Your Time:", skin);
+		table.add(yourTimeLabel).expandX().align(Align.left);
+		gameOverScoreLabel = new Label(formatter.format(score)
 				+ "s", skin);
-		table.add(gameOverScoreLabel).colspan(2).expandX().padTop(50);
+		table.add(gameOverScoreLabel).expandX().align(Align.left);
 		
 		table.row().expandX().padTop(50);
 		Label nameLabel = new Label("Your Name:", skin);
-		table.add(nameLabel).expandX();
+		table.add(nameLabel).expandX().align(Align.left);
 		
 		//add name field with default name from preferences
 		this.prefs = Gdx.app.getPreferences("settings");
 		String name = prefs.getString("name", "nameless");
 		this.nameField = new TextField(name, skin);
-		table.add(nameField).expandX().width(350);
+		table.add(nameField).expandX().width(350).align(Align.left);
 		
 		table.row().expandX().padTop(50);
 		
@@ -113,7 +117,7 @@ public class PlayHUD {
 				PlayHUD.this.game.startGame();
 			}
 		});
-		table.add(restartButton);
+		table.add(restartButton).expandX();
 		
 		
 		TextButton mainMenuButton = new TextButton("Menu", skin);
@@ -126,7 +130,9 @@ public class PlayHUD {
 				PlayHUD.this.game.startMenu();
 			}
 		});
-		table.add(mainMenuButton);
+		table.add(mainMenuButton).expandX();
+		
+		table.pack();
 
 		gameOverGroup.addActor(table);
 
@@ -151,7 +157,7 @@ public class PlayHUD {
 	public void gameOver() {
 		this.gameOver = true;
 		this.playGroup.setVisible(false);
-		gameOverScoreLabel.setText("Your Time: " + formatter.format(score)
+		gameOverScoreLabel.setText(formatter.format(score)
 				+ "s");
 		this.gameOverGroup.setVisible(true);
 	}
