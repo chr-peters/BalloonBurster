@@ -3,6 +3,7 @@ package com.christian_peters.balloonbuster.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -30,6 +31,8 @@ public class PlayScreen implements Screen {
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	private boolean gameOver;
+	private Music music;//add this to uml
+	public static float musicPosition = 0f;
 
 	public PlayScreen(BalloonBusterGame game) {
 		this.game = game;
@@ -47,6 +50,10 @@ public class PlayScreen implements Screen {
 		this.background = new Background(assetmanager);
 		this.balloons = new PlayBalloons(assetmanager);
 		this.hud = new PlayHUD(game);
+		this.music = assetmanager.get("sound/playmusic.mp3");
+		this.music.setLooping(true);
+		this.music.play();
+		this.music.setPosition(PlayScreen.musicPosition);
 	}
 
 	@Override
@@ -71,6 +78,8 @@ public class PlayScreen implements Screen {
 			background.pause();
 			balloons.pause();
 			hud.gameOver();
+			PlayScreen.musicPosition = music.getPosition();
+			music.stop();
 			gameOver = true;
 		}
 	}
