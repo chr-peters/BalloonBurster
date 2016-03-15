@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.christian_peters.balloonbuster.sprites.Balloon;
@@ -26,7 +27,6 @@ public class PlayBalloons {
 	private float maxVelocity;
 	private float accelerationFactor;// multiplier of dt in each frame
 	private AssetManager assetmanager;
-	
 
 	public PlayBalloons(AssetManager assetmanager) {
 		this.assetmanager = assetmanager;
@@ -70,7 +70,11 @@ public class PlayBalloons {
 		}
 
 		for (Balloon b : balloons) {
-			b.update(dt);
+			if (b.getCurState() != Balloon.States.DEAD) {
+				b.update(dt);
+			} else {
+				touched.add(b);
+			}
 		}
 		timeSinceLastBalloon += dt;
 	}
@@ -97,15 +101,17 @@ public class PlayBalloons {
 	public void onTouch(float x, float y) {
 		for (Balloon b : balloons) {
 			if (b.getBoundingRectangle().contains(x, y)) {
-				touched.add(b);
+				b.burst();
 			}
 		}
 	}
 
 	private void addBalloon() {
 		Random r = new Random();
-		Balloon tmp = new Balloon(assetmanager.get("img/balloons/balloons.atlas",
-				TextureAtlas.class).getRegions(), this.balloonHeight);
+		Balloon tmp = new Balloon(
+				assetmanager.get("img/balloons/balloons.atlas",
+						TextureAtlas.class).getRegions(), assetmanager.get(
+						"img/burst.png", Texture.class), this.balloonHeight);
 		tmp.setPosition(
 				r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
 				-1 * tmp.getHeight());
