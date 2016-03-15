@@ -35,30 +35,8 @@ public class MenuBalloons {
 	}
 
 	private void initBalloons() {
-		Random r = new Random();
-		Balloon tmp;
-		addLoop: for (int i = 0; i < balloonQuantity; i++) {
-			float tmpHeight = balloonMinHeight + r.nextFloat()
-					* (balloonMaxHeight - balloonMinHeight);
-			tmp = new Balloon(assetmanager.get("img/balloons/balloons.atlas",
-					TextureAtlas.class).getRegions(), assetmanager.get(
-					"img/burst.png", Texture.class), assetmanager.get(
-					"sound/burst.mp3", Sound.class), tmpHeight);
-			tmp.setPosition(
-					r.nextFloat()
-							* (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
-					r.nextFloat()
-							* (BalloonBusterGame.V_HEIGHT - tmp.getHeight()));
-			tmp.setVelocity(balloonMinVelocity + r.nextFloat()
-					* (balloonMaxVelocity - balloonMinVelocity));
-			for (Balloon b : balloons) {// Check for overlapping
-				if (b.getBoundingRectangle().overlaps(
-						tmp.getBoundingRectangle())) {
-					i--;
-					continue addLoop;
-				}
-			}
-			balloons.add(tmp);
+		for (int i = 0; i < balloonQuantity; i++) {
+			addBalloon(false);
 		}
 	}
 
@@ -69,7 +47,7 @@ public class MenuBalloons {
 		return true;
 	}
 
-	private void addBalloon() {
+	private void addBalloon(boolean offScreen) {
 		Random r = new Random();
 		Balloon tmp;
 		float tmpHeight = balloonMinHeight + r.nextFloat()
@@ -78,11 +56,26 @@ public class MenuBalloons {
 				TextureAtlas.class).getRegions(), assetmanager.get(
 				"img/burst.png", Texture.class), assetmanager.get(
 				"sound/burst.mp3", Sound.class), tmpHeight);
-		tmp.setPosition(
-				r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
-				-tmp.getHeight());
+		if(offScreen) {
+			tmp.setPosition(
+					r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
+					-tmp.getHeight());
+		} else {
+			tmp.setPosition(
+					r.nextFloat()
+							* (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
+					r.nextFloat()
+							* (BalloonBusterGame.V_HEIGHT - tmp.getHeight()));
+		}
 		tmp.setVelocity(balloonMinVelocity + r.nextFloat()
 				* (balloonMaxVelocity - balloonMinVelocity));
+		for (Balloon b : balloons) {// Check for overlapping
+			if (b.getBoundingRectangle().overlaps(
+					tmp.getBoundingRectangle())) {
+				addBalloon(offScreen);
+				return;
+			}
+		}
 		balloons.add(tmp);
 	}
 
@@ -98,7 +91,7 @@ public class MenuBalloons {
 
 		for (Balloon b : invisible) {
 			balloons.remove(b);
-			addBalloon();
+			addBalloon(true);
 		}
 	}
 
