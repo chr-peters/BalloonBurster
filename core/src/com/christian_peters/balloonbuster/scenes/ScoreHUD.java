@@ -31,7 +31,7 @@ public class ScoreHUD {
 	private Viewport viewport;
 	private AssetManager assetmanager;
 	private ScoreManager scores;
-	private DecimalFormat formatter;// add this to uml
+	private DecimalFormat formatter;
 	
 	public ScoreHUD(BalloonBusterGame game){
 		this.game = game;

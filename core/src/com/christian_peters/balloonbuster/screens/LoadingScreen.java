@@ -22,8 +22,7 @@ public class LoadingScreen implements Screen{
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
 	private Viewport viewport;
-	private BitmapFont logoFont;//add this to uml
-	private BitmapFont loadingFont;//add this to uml
+	private BitmapFont logoFont;
 	private ShapeRenderer renderer;
 
 	public LoadingScreen(BalloonBusterGame game){
@@ -35,7 +34,6 @@ public class LoadingScreen implements Screen{
 		camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
 		camera.update();
 		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/bitstream90.fnt"));
-		this.loadingFont = new BitmapFont(Gdx.files.internal("fonts/bitstream50.fnt"));
 		this.renderer = new ShapeRenderer();
 	}
 	

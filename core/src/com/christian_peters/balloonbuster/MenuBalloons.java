@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -41,7 +42,8 @@ public class MenuBalloons {
 					* (balloonMaxHeight - balloonMinHeight);
 			tmp = new Balloon(assetmanager.get("img/balloons/balloons.atlas",
 					TextureAtlas.class).getRegions(), assetmanager.get(
-					"img/burst.png", Texture.class), tmpHeight);
+					"img/burst.png", Texture.class), assetmanager.get(
+					"sound/burst.mp3", Sound.class), tmpHeight);
 			tmp.setPosition(
 					r.nextFloat()
 							* (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
@@ -74,7 +76,8 @@ public class MenuBalloons {
 				* (balloonMaxHeight - balloonMinHeight);
 		tmp = new Balloon(assetmanager.get("img/balloons/balloons.atlas",
 				TextureAtlas.class).getRegions(), assetmanager.get(
-				"img/burst.png", Texture.class), tmpHeight);
+				"img/burst.png", Texture.class), assetmanager.get(
+				"sound/burst.mp3", Sound.class), tmpHeight);
 		tmp.setPosition(
 				r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
 				-tmp.getHeight());

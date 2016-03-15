@@ -1,5 +1,6 @@
 package com.christian_peters.balloonbuster.sprites;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
@@ -15,13 +16,14 @@ public class Balloon extends Sprite {
     private Animation anim;
     private float timePassed;
     
-    public enum States {FLY, BURST, DEAD};//uml
-    private Balloon.States curState;//uml
+    public enum States {FLY, BURST, DEAD};
+    private Balloon.States curState;
     private Texture burstTexture;
     private float burstTime;
     private float timeSinceBurst;
+    private Sound burstSound;
     
-    public Balloon(Array<TextureAtlas.AtlasRegion> frames, Texture burstTexture, float height){
+    public Balloon(Array<TextureAtlas.AtlasRegion> frames, Texture burstTexture, Sound burstSound, float height){
     	this.timePassed = 0;
     	anim = new Animation(0.12f, frames);
     	anim.setPlayMode(PlayMode.LOOP);
@@ -32,6 +34,7 @@ public class Balloon extends Sprite {
     	this.burstTime = 0.03f;
     	this.timeSinceBurst = 0f;
     	this.burstTexture = burstTexture;
+    	this.burstSound = burstSound;
     }
 
 	public void update(float dt){
@@ -54,13 +57,14 @@ public class Balloon extends Sprite {
 		this.setSize(this.getWidth(), this.getWidth()/textureAspect);
 		this.translateY(100f);
 		this.setRegion(burstTexture);
+		this.burstSound.play(0.3f);
 	}
 
     public void setVelocity(float velocity){
         this.velocity = velocity;
     }
     
-    public Balloon.States getCurState(){//uml
+    public Balloon.States getCurState(){
     	return this.curState;
     }
 }

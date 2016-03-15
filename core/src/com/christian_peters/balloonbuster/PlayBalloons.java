@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -111,7 +112,8 @@ public class PlayBalloons {
 		Balloon tmp = new Balloon(
 				assetmanager.get("img/balloons/balloons.atlas",
 						TextureAtlas.class).getRegions(), assetmanager.get(
-						"img/burst.png", Texture.class), this.balloonHeight);
+						"img/burst.png", Texture.class), assetmanager.get(
+								"sound/burst.mp3", Sound.class),this.balloonHeight);
 		tmp.setPosition(
 				r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
 				-1 * tmp.getHeight());

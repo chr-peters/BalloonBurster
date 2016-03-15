@@ -85,7 +85,7 @@ public class PlayScreen implements Screen {
 	}
 
 	private void handleTouch() {
-		if (Gdx.input.justTouched()) {
+		if (Gdx.input.justTouched() && !gameOver) {
 			Vector3 worldKoors = camera.unproject(new Vector3(Gdx.input.getX(),
 					Gdx.input.getY(), 0), viewport.getScreenX(), viewport
 					.getScreenY(), viewport.getScreenWidth(), viewport
@@ -123,5 +123,6 @@ public class PlayScreen implements Screen {
 	@Override
 	public void dispose() {
 		hud.dispose();
+		music.dispose();
 	}
 }

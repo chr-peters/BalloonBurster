@@ -5,6 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -67,6 +68,7 @@ public class BalloonBusterGame extends Game {
 		assetmanager.load("img/gameOverBackground.png", Texture.class);
 		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
 		assetmanager.load("sound/playmusic.mp3", Music.class);
+		assetmanager.load("sound/burst.mp3", Sound.class);
 		assetmanager.load("img/balloons/balloons.atlas", TextureAtlas.class);
 	}
 
