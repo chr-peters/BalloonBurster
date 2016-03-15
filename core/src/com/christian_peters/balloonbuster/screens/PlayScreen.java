@@ -31,8 +31,7 @@ public class PlayScreen implements Screen {
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	private boolean gameOver;
-	private Music music;//add this to uml
-	public static float musicPosition = 0f;
+	public static Music music;//add this to uml
 
 	public PlayScreen(BalloonBusterGame game) {
 		this.game = game;
@@ -50,10 +49,12 @@ public class PlayScreen implements Screen {
 		this.background = new Background(assetmanager);
 		this.balloons = new PlayBalloons(assetmanager);
 		this.hud = new PlayHUD(game);
-		this.music = assetmanager.get("sound/playmusic.mp3");
-		this.music.setLooping(true);
-		this.music.play();
-		this.music.setPosition(PlayScreen.musicPosition);
+
+		if(music == null) {
+			music = assetmanager.get("sound/playmusic.mp3");
+			music.setLooping(true);
+		}
+		music.play();
 	}
 
 	@Override
@@ -78,8 +79,7 @@ public class PlayScreen implements Screen {
 			background.pause();
 			balloons.pause();
 			hud.gameOver();
-			PlayScreen.musicPosition = music.getPosition();
-			music.stop();
+			music.pause();
 			gameOver = true;
 		}
 	}
@@ -123,6 +123,5 @@ public class PlayScreen implements Screen {
 	@Override
 	public void dispose() {
 		hud.dispose();
-		music.dispose();
 	}
 }
