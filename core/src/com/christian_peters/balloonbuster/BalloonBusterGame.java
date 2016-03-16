@@ -60,8 +60,8 @@ public class BalloonBusterGame extends Game {
 		setScreen(new AboutScreen(this));
 	}
 	
-	public void transition(Screen end){
-		setScreen(new TransitionScreen(this, this.getScreen(), end));
+	public void transition(Screen target){
+		setScreen(new TransitionScreen(this, this.getScreen(), target));
 	}
 
 	@Override
