@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
+import com.christian_peters.balloonbuster.scenes.MenuHUD;
 
 public class LoadingScreen implements Screen{
 	
@@ -45,7 +46,7 @@ public class LoadingScreen implements Screen{
 
 	public void update(float dt){
 		if(assetmanager.update()){
-			game.startMenu();
+			game.transition(new MenuScreen(game));;
 		}
 	}
 	
@@ -95,8 +96,7 @@ public class LoadingScreen implements Screen{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		
+		renderer.dispose();
 	}
 
 }

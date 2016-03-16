@@ -3,6 +3,7 @@ package com.christian_peters.balloonbuster;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -15,6 +16,7 @@ import com.christian_peters.balloonbuster.screens.LoadingScreen;
 import com.christian_peters.balloonbuster.screens.MenuScreen;
 import com.christian_peters.balloonbuster.screens.PlayScreen;
 import com.christian_peters.balloonbuster.screens.ScoreScreen;
+import com.christian_peters.balloonbuster.screens.TransitionScreen;
 
 public class BalloonBusterGame extends Game {
 	public static float V_WIDTH;//Not final due to later changes
@@ -56,6 +58,10 @@ public class BalloonBusterGame extends Game {
 	
 	public void startAbout(){
 		setScreen(new AboutScreen(this));
+	}
+	
+	public void transition(Screen end){
+		setScreen(new TransitionScreen(this, this.getScreen(), end));
 	}
 
 	@Override

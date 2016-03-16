@@ -15,6 +15,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
+import com.christian_peters.balloonbuster.screens.AboutScreen;
+import com.christian_peters.balloonbuster.screens.PlayScreen;
+import com.christian_peters.balloonbuster.screens.ScoreScreen;
 
 public class MenuHUD {
 	private BalloonBusterGame game;
@@ -45,7 +48,7 @@ public class MenuHUD {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				MenuHUD.this.game.startGame();
+				MenuHUD.this.game.transition(new PlayScreen(MenuHUD.this.game));
 			}
 			
 		});
@@ -58,7 +61,7 @@ public class MenuHUD {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				MenuHUD.this.game.startScore();
+				MenuHUD.this.game.transition(new ScoreScreen(MenuHUD.this.game));
 			}
 			
 		});
@@ -71,7 +74,7 @@ public class MenuHUD {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				MenuHUD.this.game.startAbout();
+				MenuHUD.this.game.transition(new AboutScreen(MenuHUD.this.game));
 			}
 			
 		});

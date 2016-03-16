@@ -23,6 +23,8 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
+import com.christian_peters.balloonbuster.screens.MenuScreen;
+import com.christian_peters.balloonbuster.screens.ScoreScreen;
 
 /**
  * Created by Chris on 06.03.2016.
@@ -127,7 +129,7 @@ public class PlayHUD {
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
 				prefs.flush();
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
-				PlayHUD.this.game.startMenu();
+				PlayHUD.this.game.transition(new MenuScreen(PlayHUD.this.game));;
 			}
 		});
 		table.add(mainMenuButton).expandX();

@@ -19,6 +19,8 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
+import com.christian_peters.balloonbuster.screens.MenuScreen;
+import com.christian_peters.balloonbuster.screens.ScoreScreen;
 
 public class AboutHUD {
 	private BalloonBusterGame game;
@@ -74,7 +76,7 @@ public class AboutHUD {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				AboutHUD.this.game.startMenu();
+				AboutHUD.this.game.transition(new MenuScreen(AboutHUD.this.game));
 			}
 			
 		});
