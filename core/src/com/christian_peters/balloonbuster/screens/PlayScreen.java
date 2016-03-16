@@ -31,7 +31,7 @@ public class PlayScreen implements Screen {
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	private boolean gameOver;
-	public static Music music;//add this to uml
+	public static Music music;
 
 	public PlayScreen(BalloonBusterGame game) {
 		this.game = game;

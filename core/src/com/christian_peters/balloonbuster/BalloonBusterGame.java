@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.christian_peters.balloonbuster.screens.AboutScreen;
 import com.christian_peters.balloonbuster.screens.LoadingScreen;
 import com.christian_peters.balloonbuster.screens.MenuScreen;
 import com.christian_peters.balloonbuster.screens.PlayScreen;
@@ -51,6 +52,10 @@ public class BalloonBusterGame extends Game {
 	
 	public void startScore(){
 		setScreen(new ScoreScreen(this));
+	}
+	
+	public void startAbout(){
+		setScreen(new AboutScreen(this));
 	}
 
 	@Override

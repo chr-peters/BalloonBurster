@@ -11,45 +11,44 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.Background;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
 import com.christian_peters.balloonbuster.MenuBalloons;
-import com.christian_peters.balloonbuster.scenes.ScoreHUD;
+import com.christian_peters.balloonbuster.scenes.AboutHUD;
 
-public class ScoreScreen implements Screen{
+public class AboutScreen implements Screen{
+	
 	private BalloonBusterGame game;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
+	private MenuBalloons balloons;
+	private Background background;
 	private OrthographicCamera camera;
 	private Viewport viewport;
-	private Background background;
-	private MenuBalloons balloons;
-	private ScoreHUD hud;
+	private AboutHUD hud;
 	
-	public ScoreScreen(BalloonBusterGame game){
+	public AboutScreen (BalloonBusterGame game){
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
 		
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH,
-				BalloonBusterGame.V_HEIGHT, camera);
-		camera.translate(BalloonBusterGame.V_WIDTH / 2,
-				BalloonBusterGame.V_HEIGHT / 2);
-		camera.update();
-
+		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, this.camera);
+		this.camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
+		this.camera.update();
+		
 		this.background = new Background(assetmanager);
 		this.balloons = new MenuBalloons(assetmanager);
-		this.hud = new ScoreHUD(game);
-	}
-	
-	public void update(float dt){
-		background.update(dt);
-		balloons.update(dt);
-		hud.update(dt);
+		this.hud = new AboutHUD(game);
 	}
 
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void update(float dt){
+		background.update(dt);
+		balloons.update(dt);
+		hud.update(dt);
 	}
 
 	@Override
@@ -68,7 +67,6 @@ public class ScoreScreen implements Screen{
 	@Override
 	public void resize(int width, int height) {
 		this.viewport.update(width, height);
-		hud.resize(width, height);
 	}
 
 	@Override
@@ -91,7 +89,7 @@ public class ScoreScreen implements Screen{
 
 	@Override
 	public void dispose() {
-		hud.dispose();
+		this.hud.dispose();
 	}
 
 }

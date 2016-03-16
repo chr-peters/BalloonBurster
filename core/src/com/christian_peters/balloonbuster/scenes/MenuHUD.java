@@ -64,6 +64,19 @@ public class MenuHUD {
 		});
 		table.add(scoreButton).expandX().padTop(50).size(400, 70);
 		
+		table.row();
+		
+		TextButton aboutButton = new TextButton("About", skin);
+		aboutButton.addListener(new ClickListener(){
+
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				MenuHUD.this.game.startAbout();
+			}
+			
+		});
+		table.add(aboutButton).expandX().padTop(50).size(400, 70);
+		
 		stage.addActor(table);
 		
 		Gdx.input.setInputProcessor(stage);
