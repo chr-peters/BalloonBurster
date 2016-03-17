@@ -122,6 +122,7 @@ public class PlayHUD {
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
 				prefs.flush();
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
+				Gdx.input.setOnscreenKeyboardVisible(false);
 				PlayHUD.this.game.startGame();
 			}
 		});
@@ -139,6 +140,7 @@ public class PlayHUD {
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
 				prefs.flush();
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
+				Gdx.input.setOnscreenKeyboardVisible(false);
 				PlayHUD.this.game.transition(new MenuScreen(PlayHUD.this.game));;
 			}
 		});
