@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -78,7 +79,12 @@ public class ScoreHUD {
 		
 		table.setWidth(BalloonBusterGame.V_WIDTH*0.8f);
 		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2, Align.center);
-		TextButton menu = new TextButton("Menu", skin);
+		
+		ImageButton menu = new ImageButton(new TextureRegionDrawable(
+				new TextureRegion(assetmanager.get("img/buttons/btn_menu.png",
+						Texture.class))), new TextureRegionDrawable(
+				new TextureRegion(assetmanager.get(
+						"img/buttons/btn_menu_pressed.png", Texture.class))));
 		menu.addListener(new ClickListener(){
 
 			@Override
@@ -87,7 +93,7 @@ public class ScoreHUD {
 			}
 			
 		});
-		menu.setSize(300, 70);
+		menu.setSize(400, 70);
 		menu.setPosition(BalloonBusterGame.V_WIDTH/2, table.getY()-50, Align.top | Align.center);
 		
 		stage.addActor(table);

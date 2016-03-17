@@ -74,6 +74,16 @@ public class BalloonBusterGame extends Game {
 		assetmanager.load("img/clouds/cloud01.png", Texture.class);
 		assetmanager.load("img/clouds/cloud02.png", Texture.class);
 		assetmanager.load("img/clouds/cloud03.png", Texture.class);
+		assetmanager.load("img/buttons/btn_play.png", Texture.class);
+		assetmanager.load("img/buttons/btn_play_pressed.png", Texture.class);
+		assetmanager.load("img/buttons/btn_scores.png", Texture.class);
+		assetmanager.load("img/buttons/btn_scores_pressed.png", Texture.class);
+		assetmanager.load("img/buttons/btn_about.png", Texture.class);
+		assetmanager.load("img/buttons/btn_about_pressed.png", Texture.class);
+		assetmanager.load("img/buttons/btn_menu.png", Texture.class);
+		assetmanager.load("img/buttons/btn_menu_pressed.png", Texture.class);
+		assetmanager.load("img/buttons/btn_restart.png", Texture.class);
+		assetmanager.load("img/buttons/btn_restart_pressed.png", Texture.class);
 		assetmanager.load("img/burst.png", Texture.class);
 		assetmanager.load("img/sun.png", Texture.class);
 		assetmanager.load("img/gameOverBackground.png", Texture.class);

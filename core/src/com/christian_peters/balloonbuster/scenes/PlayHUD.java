@@ -9,16 +9,19 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -109,8 +112,11 @@ public class PlayHUD {
 		
 		table.row().expandX().padTop(50);
 		
-		TextButton restartButton = new TextButton("Restart", skin);
-		restartButton.pad(5);
+		ImageButton restartButton = new ImageButton(new TextureRegionDrawable(
+				new TextureRegion(assetmanager.get("img/buttons/btn_restart.png",
+						Texture.class))), new TextureRegionDrawable(
+				new TextureRegion(assetmanager.get(
+						"img/buttons/btn_restart_pressed.png", Texture.class))));
 		restartButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
@@ -119,11 +125,15 @@ public class PlayHUD {
 				PlayHUD.this.game.startGame();
 			}
 		});
-		table.add(restartButton).expandX();
+		table.add(restartButton).expandX().size(400, 70).colspan(2);
 		
+		table.row().expandX().padTop(50);		
 		
-		TextButton mainMenuButton = new TextButton("Menu", skin);
-		mainMenuButton.pad(5);
+		ImageButton mainMenuButton = new ImageButton(new TextureRegionDrawable(
+				new TextureRegion(assetmanager.get("img/buttons/btn_menu.png",
+						Texture.class))), new TextureRegionDrawable(
+				new TextureRegion(assetmanager.get(
+						"img/buttons/btn_menu_pressed.png", Texture.class))));
 		mainMenuButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
@@ -132,7 +142,7 @@ public class PlayHUD {
 				PlayHUD.this.game.transition(new MenuScreen(PlayHUD.this.game));;
 			}
 		});
-		table.add(mainMenuButton).expandX();
+		table.add(mainMenuButton).expandX().size(400, 70).colspan(2);
 		
 		table.pack();
 
