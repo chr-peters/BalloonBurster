@@ -66,7 +66,7 @@ public class PlayHUD {
 
 		// add score label
 		this.scoreLabel = new Label(formatter.format(score) + "s",
-				skin, "bold");
+				skin, "bold-outline");
 		scoreLabel.setHeight(50);
 		scoreLabel.setPosition(BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
 		playGroup.addActor(scoreLabel);

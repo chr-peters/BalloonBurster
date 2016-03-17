@@ -20,6 +20,7 @@ public class CloudManager {
     private float minHeight;
     private float maxVelocity;
     private float minVelocity;
+    private boolean direction;//clouds only move in one direction - uml
 
     public CloudManager(AssetManager assetmanager){
         this.assetmanager = assetmanager;
@@ -29,21 +30,14 @@ public class CloudManager {
         this.maxVelocity = 35f;
         this.minVelocity = 7f;
         this.clouds = new ArrayList<Cloud>();
+        Random r = new Random();
+        this.direction = r.nextBoolean();
         initClouds();
     }
     
     private void initClouds(){
-    	Random r = new Random();
-    	Texture cloudTexture;
-    	float cloudAspect;
     	for(int i=0; i<quantity; i++){
-        	Cloud tmp = new Cloud(getRandomCloudTexture(), minHeight + r.nextFloat()*(maxHeight-minHeight));
-    		tmp.setX(r.nextInt((int) (BalloonBusterGame.V_WIDTH-tmp.getWidth())));
-    		tmp.setY(BalloonBusterGame.V_HEIGHT/3 + r.nextInt((int)(BalloonBusterGame.V_HEIGHT*2/3 - tmp.getHeight())));
-    		tmp.setDirection(r.nextBoolean());
-    		float velocity = minVelocity + r.nextFloat()*(maxVelocity-minVelocity);
-    		tmp.setVelocity(velocity);
-    		clouds.add(tmp);
+        	addCloud(false);
     	}
     }
     
@@ -54,19 +48,34 @@ public class CloudManager {
     	return true;
     }
     
-    private void addCloud(){
+    private void addCloud(boolean offScreen){
     	Random r = new Random();
     	Cloud tmp = new Cloud(getRandomCloudTexture(), minHeight + r.nextFloat()*(maxHeight-minHeight));
-		if(r.nextBoolean()){//add a new cloud at the right border and make it move to the left
-			tmp.setX(BalloonBusterGame.V_WIDTH);
-			tmp.setDirection(false);
-		} else {
-			tmp.setX(-1*tmp.getWidth());
+		if(this.direction){//add a new cloud at the left border and make it move to the right
+			if(offScreen) {//if the cloud is to be created off the screen
+				tmp.setX(-1*tmp.getWidth());
+			} else {
+				tmp.setX(r.nextInt((int) (BalloonBusterGame.V_WIDTH-tmp.getWidth())));
+			}
 			tmp.setDirection(true);
+		} else {
+			if(offScreen) {
+				tmp.setX(BalloonBusterGame.V_WIDTH);
+			} else {
+				tmp.setX(r.nextInt((int) (BalloonBusterGame.V_WIDTH-tmp.getWidth())));
+			}
+			tmp.setDirection(false);
 		}
 		tmp.setY(BalloonBusterGame.V_HEIGHT/3 + r.nextInt((int)(BalloonBusterGame.V_HEIGHT*2/3 - tmp.getHeight())));
 		float velocity = minVelocity + r.nextFloat()*(maxVelocity-minVelocity);
 		tmp.setVelocity(velocity);
+		//check for overlap
+		for(Cloud c: clouds){
+			if(c.getBoundingRectangle().overlaps(tmp.getBoundingRectangle())){
+				addCloud(offScreen);
+				return;
+			}
+		}
 		clouds.add(tmp);
     }
     
@@ -91,7 +100,7 @@ public class CloudManager {
     	//remove invisible clouds and add new ones
     	for(Cloud c: invisible){
     		clouds.remove(c);
-    		addCloud();
+    		addCloud(true);
     	}
     }
 
