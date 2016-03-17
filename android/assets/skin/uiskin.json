@@ -1,5 +1,6 @@
 {
-com.badlogic.gdx.graphics.g2d.BitmapFont: { default-font: { file: fonts/bitstream50.fnt },
+com.badlogic.gdx.graphics.g2d.BitmapFont: { default-font: { file: fonts/altehaas50.fnt },
+											default-bold-font: { file: fonts/altehaas50bold.fnt },
 											large-font: {file: fonts/bitstream90.fnt } },
 com.badlogic.gdx.graphics.Color: {
 	green: { a: 1, b: 0, g: 1, r: 0 },
@@ -13,6 +14,7 @@ com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 },
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: { font: default-font, fontColor: black },
+	bold: { font: default-bold-font, fontColor: black },
 	large: {font: large-font, fontColor: black },
 	logo: {font: large-font, fontColor: white }
 },

@@ -65,10 +65,10 @@ public class PlayHUD {
 		this.playGroup = new Group();
 
 		// add score label
-		this.scoreLabel = new Label("Time: " + formatter.format(score) + "s",
-				skin);
+		this.scoreLabel = new Label(formatter.format(score) + "s",
+				skin, "bold");
 		scoreLabel.setHeight(50);
-		scoreLabel.setPosition(6, 3);
+		scoreLabel.setPosition(BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
 		playGroup.addActor(scoreLabel);
 		
 		playGroup.setSize(stage.getWidth(), stage.getHeight());
@@ -157,7 +157,8 @@ public class PlayHUD {
 	public void update(float dt) {
 		if (!gameOver) {
 			score += dt;
-			scoreLabel.setText("Time: " + formatter.format(score) + "s");
+			scoreLabel.setText(formatter.format(score) + "s");
+			scoreLabel.setPosition(BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
 		}
 		stage.act(dt);
 	}

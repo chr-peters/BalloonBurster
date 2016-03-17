@@ -45,12 +45,12 @@ public class AboutHUD {
 		table.add(aboutLabel).colspan(2).expandX().align(Align.left);
 		table.row();
 		
-		table.add(new Label("Graphics:", skin)).expandX().align(Align.left);
+		table.add(new Label("Graphics:", skin, "bold")).expandX().align(Align.left);
 		String graphics = "Marius Nolden";
 		table.add(new Label(graphics, skin)).expandX().align(Align.left);
 		table.row();
 		
-		table.add(new Label("Music:", skin)).expandX().align(Align.left);
+		table.add(new Label("Music:", skin, "bold")).expandX().align(Align.left);
 		String music = "Final Striker";
 		table.add(new Label(music, skin)).expandX().align(Align.left);
 		table.row().padTop(50);
