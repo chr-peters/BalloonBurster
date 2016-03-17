@@ -31,12 +31,12 @@ public class PlayBalloons {
 
 	public PlayBalloons(AssetManager assetmanager) {
 		this.assetmanager = assetmanager;
-		this.curDelay = 1.5f;
-		this.minDelay = 0.3f;
-		this.delayChangeFactor = 0.08f;
+		this.curDelay = 1f;
+		this.minDelay = 0.25f;
+		this.delayChangeFactor = 0.05f;
 		this.timeSinceLastBalloon = 0f;
 		this.curVelocity = 700f;
-		this.maxVelocity = 1300f;
+		this.maxVelocity = 1600f;
 		this.accelerationFactor = 20f;
 		this.balloonHeight = 250f;
 		this.balloons = new ArrayList<Balloon>();

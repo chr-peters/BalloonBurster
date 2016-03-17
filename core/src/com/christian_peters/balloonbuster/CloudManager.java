@@ -20,7 +20,7 @@ public class CloudManager {
     private float minHeight;
     private float maxVelocity;
     private float minVelocity;
-    private boolean direction;//clouds only move in one direction - uml
+    private boolean direction;//clouds only move in one direction
 
     public CloudManager(AssetManager assetmanager){
         this.assetmanager = assetmanager;
