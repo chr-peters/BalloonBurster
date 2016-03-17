@@ -90,7 +90,7 @@ public class PlayHUD {
 		table.top();
 		table.padTop(250);
 
-		Label gameOverLabel = new Label("Game Over!", skin, "large");
+		Label gameOverLabel = new Label("Game Over!", skin, "logo");
 		table.add(gameOverLabel).colspan(2).expandX();
 		table.row().padTop(50);
 		

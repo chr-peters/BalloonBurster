@@ -1,7 +1,7 @@
 {
 com.badlogic.gdx.graphics.g2d.BitmapFont: { default-font: { file: fonts/altehaas50.fnt },
 											default-bold-font: { file: fonts/altehaas50bold.fnt },
-											large-font: {file: fonts/bitstream90.fnt } },
+											large-font: {file: fonts/altehaas90bold.fnt } },
 com.badlogic.gdx.graphics.Color: {
 	green: { a: 1, b: 0, g: 1, r: 0 },
 	white: { a: 1, b: 1, g: 1, r: 1 },

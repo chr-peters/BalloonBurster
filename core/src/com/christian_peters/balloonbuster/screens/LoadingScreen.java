@@ -34,7 +34,7 @@ public class LoadingScreen implements Screen{
 		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, camera);
 		camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
 		camera.update();
-		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/bitstream90.fnt"));
+		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/altehaas90bold.fnt"));
 		this.renderer = new ShapeRenderer();
 	}
 	
