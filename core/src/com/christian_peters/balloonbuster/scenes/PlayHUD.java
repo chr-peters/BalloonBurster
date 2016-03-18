@@ -27,6 +27,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
 import com.christian_peters.balloonbuster.screens.MenuScreen;
+import com.christian_peters.balloonbuster.screens.PlayScreen;
 import com.christian_peters.balloonbuster.screens.ScoreScreen;
 
 /**
@@ -123,7 +124,8 @@ public class PlayHUD {
 				prefs.flush();
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				Gdx.input.setOnscreenKeyboardVisible(false);
-				PlayHUD.this.game.startGame();
+				PlayScreen screen = (PlayScreen) PlayHUD.this.game.getScreen();
+				screen.restart();
 			}
 		});
 		table.add(restartButton).expandX().size(400, 70).colspan(2);

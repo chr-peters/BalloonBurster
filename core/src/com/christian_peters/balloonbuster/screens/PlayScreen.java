@@ -56,6 +56,14 @@ public class PlayScreen implements Screen {
 		}
 		music.play();
 	}
+	
+	public void restart(){
+		this.balloons = new PlayBalloons(assetmanager);
+		this.hud = new PlayHUD(game);
+		this.gameOver = false;
+		this.background.resume();
+		this.music.play();
+	}
 
 	@Override
 	public void render(float delta) {

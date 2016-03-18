@@ -49,4 +49,8 @@ public class Background {
     public void pause(){
     	this.paused = true;
     }
+    
+    public void resume(){
+    	this.paused = false;
+    }
 }
