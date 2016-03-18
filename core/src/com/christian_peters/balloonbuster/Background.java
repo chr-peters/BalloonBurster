@@ -27,7 +27,7 @@ public class Background {
         clouds = new CloudManager(assetmanager);
         
         //Create Sun
-        sun = new Sun(assetmanager.get("img/sun.png", Texture.class), 150);
+        sun = new Sun(assetmanager.get("img/sun.png", Texture.class), 400);
         sun.setCenter(BalloonBusterGame.V_WIDTH*0.8f, 1100f);
         sun.setOrigin(sun.getWidth()/2, sun.getHeight()/2);
     }

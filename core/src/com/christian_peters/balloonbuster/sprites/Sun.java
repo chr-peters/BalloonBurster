@@ -15,7 +15,7 @@ public class Sun extends Sprite {
     	float aspect = super.getWidth()/super.getHeight();
     	setSize(height*aspect, height);
     	
-    	this.rotationVelocity = 7f;
+    	this.rotationVelocity = 5f;
     }
 
 	public void update(float dt){
