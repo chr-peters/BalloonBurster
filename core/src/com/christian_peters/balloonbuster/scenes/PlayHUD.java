@@ -109,6 +109,7 @@ public class PlayHUD {
 		this.prefs = Gdx.app.getPreferences("settings");
 		String name = prefs.getString("name", "nameless");
 		this.nameField = new TextField(name, skin);
+		this.nameField.setMaxLength(10);//10 characters at maximum
 		table.add(nameField).expandX().width(350).align(Align.left);
 		
 		table.row().expandX().padTop(50);
