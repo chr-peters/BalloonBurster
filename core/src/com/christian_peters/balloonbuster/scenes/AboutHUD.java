@@ -62,14 +62,13 @@ public class AboutHUD {
 		devLabel.setWrap(true);
 		devLabel.setAlignment(Align.center);
 		table.add(devLabel).expandX().align(Align.left).colspan(2).width(table.getWidth());
-		table.pack();
-		
-		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
-		//padTop of 220
 		
 		//set Background
 		table.setBackground(new NinePatchDrawable(new NinePatch(assetmanager.get("img/bg_ninepatch.png", Texture.class), 10, 10, 10, 10)));
 		table.pack();
+		
+		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
+		//padTop of 220
 		
 		ImageButton menu = new ImageButton(new TextureRegionDrawable(
 				new TextureRegion(assetmanager.get("img/buttons/btn_menu.png",
