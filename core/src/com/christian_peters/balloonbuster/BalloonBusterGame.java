@@ -86,6 +86,7 @@ public class BalloonBusterGame extends Game {
 		assetmanager.load("img/buttons/btn_restart_pressed.png", Texture.class);
 		assetmanager.load("img/burst.png", Texture.class);
 		assetmanager.load("img/sun.png", Texture.class);
+		assetmanager.load("img/bg_ninepatch.png", Texture.class);
 		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
 		assetmanager.load("sound/playmusic.mp3", Music.class);
 		assetmanager.load("sound/burst.mp3", Sound.class);

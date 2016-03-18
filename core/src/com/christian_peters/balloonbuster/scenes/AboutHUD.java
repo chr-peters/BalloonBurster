@@ -5,6 +5,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -66,10 +68,7 @@ public class AboutHUD {
 		//padTop of 220
 		
 		//set Background
-		Pixmap pm = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
-		pm.setColor(1, 1, 1, 0.3f);
-		pm.fill();
-		table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pm))));
+		table.setBackground(new NinePatchDrawable(new NinePatch(assetmanager.get("img/bg_ninepatch.png", Texture.class), 10, 10, 10, 10)));
 		table.pack();
 		
 		ImageButton menu = new ImageButton(new TextureRegionDrawable(
