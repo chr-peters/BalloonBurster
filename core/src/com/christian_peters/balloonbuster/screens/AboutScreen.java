@@ -67,6 +67,7 @@ public class AboutScreen implements Screen{
 	@Override
 	public void resize(int width, int height) {
 		this.viewport.update(width, height);
+		this.hud.resize(width, height);
 	}
 
 	@Override

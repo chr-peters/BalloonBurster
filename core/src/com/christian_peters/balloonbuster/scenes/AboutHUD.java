@@ -62,7 +62,8 @@ public class AboutHUD {
 		table.add(devLabel).expandX().align(Align.left).colspan(2).width(table.getWidth());
 		table.pack();
 		
-		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2 + 150, Align.center);
+		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
+		//padTop of 220
 		
 		//set Background
 		Pixmap pm = new Pixmap(1, 1, Pixmap.Format.RGBA8888);

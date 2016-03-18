@@ -2,6 +2,7 @@
 com.badlogic.gdx.graphics.g2d.BitmapFont: { default-font: { file: fonts/altehaas50.fnt },
 											default-bold-font: { file: fonts/altehaas50bold.fnt },
 											default-bold-outline-font: { file: fonts/altehaas50boldoutline.fnt },
+											logo-font: { file: fonts/blow100.fnt },
 											large-font: {file: fonts/altehaas90bold.fnt } },
 com.badlogic.gdx.graphics.Color: {
 	green: { a: 1, b: 0, g: 1, r: 0 },
@@ -18,7 +19,8 @@ com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	bold: { font: default-bold-font, fontColor: black },
 	bold-outline: { font: default-bold-outline-font, fontColor: white },
 	large: {font: large-font, fontColor: black },
-	logo: {font: large-font, fontColor: white }
+	large-white: {font: large-font, fontColor: white },
+	logo: {font: logo-font, fontColor: white }
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
 	default: { selection: selection, font: default-font, fontColor: grey, focusedFontColor: black, cursor: cursor }

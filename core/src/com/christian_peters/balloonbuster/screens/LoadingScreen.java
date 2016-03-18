@@ -34,7 +34,7 @@ public class LoadingScreen implements Screen{
 		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, camera);
 		camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
 		camera.update();
-		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/altehaas90bold.fnt"));
+		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/blow100.fnt"));
 		this.renderer = new ShapeRenderer();
 	}
 	
@@ -67,7 +67,7 @@ public class LoadingScreen implements Screen{
 		renderer.end();
 		
 		batch.begin();
-		logoFont.draw(batch, "Balloon Buster", 0, 1040, BalloonBusterGame.V_WIDTH, Align.center, false);
+		logoFont.draw(batch, "Balloon Buster", 0, BalloonBusterGame.V_HEIGHT-220, BalloonBusterGame.V_WIDTH, Align.center, false);
 		batch.end();
 	}
 

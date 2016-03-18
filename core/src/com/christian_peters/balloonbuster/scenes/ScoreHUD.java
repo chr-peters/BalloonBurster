@@ -78,7 +78,8 @@ public class ScoreHUD {
 		table.pack();
 		
 		table.setWidth(BalloonBusterGame.V_WIDTH*0.8f);
-		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2, Align.center);
+		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
+		//padTop of 220
 		
 		ImageButton menu = new ImageButton(new TextureRegionDrawable(
 				new TextureRegion(assetmanager.get("img/buttons/btn_menu.png",

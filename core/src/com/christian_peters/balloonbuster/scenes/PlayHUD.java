@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -77,19 +78,10 @@ public class PlayHUD {
 		stage.addActor(playGroup);
 
 		this.gameOverGroup = new Group();
-		gameOverGroup.setSize(stage.getWidth(), stage.getHeight());
-		// add gameOverBackground
-		Image gameOverBackground = new Image(assetmanager.get(
-				"img/gameOverBackground.png", Texture.class));
-		gameOverBackground.setSize(BalloonBusterGame.V_WIDTH,
-				BalloonBusterGame.V_HEIGHT);
-		gameOverGroup.addActor(gameOverBackground);
 
 		// add Layout and Widgets
 		Table table = new Table();
-		table.setFillParent(true);
 		table.top();
-		table.padTop(250);
 
 		Label gameOverLabel = new Label("Game Over!", skin, "logo");
 		table.add(gameOverLabel).colspan(2).expandX();
@@ -149,7 +141,16 @@ public class PlayHUD {
 		});
 		table.add(mainMenuButton).expandX().size(400, 70).colspan(2);
 		
+		//set Background
+		Pixmap pm = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+		pm.setColor(1, 1, 1, 0.3f);
+		pm.fill();
+		table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pm))));
 		table.pack();
+		
+		table.setWidth(BalloonBusterGame.V_WIDTH);
+		
+		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
 
 		gameOverGroup.addActor(table);
 
