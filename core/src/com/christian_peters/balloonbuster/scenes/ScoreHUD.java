@@ -55,15 +55,15 @@ public class ScoreHUD {
 		//add the score entries
 		for(int i=0; i<scores.getMaxSize(); i++){
 			table.row();
-			Label position = new Label((i+1)+".", skin);
+			Label position = new Label((i+1)+".", skin, "bold-outline");
 			table.add(position);
 			if(i<scores.getSize()){
-				Label name = new Label(scores.get(i).name, skin);
+				Label name = new Label(scores.get(i).name, skin, "bold-outline");
 				table.add(name).expandX().align(Align.left);
-				Label score = new Label(formatter.format(scores.get(i).score)+"s", skin);
+				Label score = new Label(formatter.format(scores.get(i).score)+"s", skin, "bold-outline");
 				table.add(score);
 			} else {
-				Label name = new Label("", skin);
+				Label name = new Label("", skin, "bold-outline");
 				table.add(name).expandX().align(Align.left);
 				Label score = new Label("", skin);
 				table.add(score);

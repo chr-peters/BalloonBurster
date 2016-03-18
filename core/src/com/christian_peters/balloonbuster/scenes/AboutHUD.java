@@ -56,7 +56,7 @@ public class AboutHUD {
 		table.row().padTop(50);
 		
 		String developer = "A game developed by Christian Peters";
-		Label devLabel = new Label(developer, skin);
+		Label devLabel = new Label(developer, skin, "bold-outline");
 		devLabel.setWrap(true);
 		devLabel.setAlignment(Align.center);
 		table.add(devLabel).expandX().align(Align.left).colspan(2).width(table.getWidth());
