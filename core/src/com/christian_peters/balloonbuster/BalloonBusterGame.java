@@ -70,7 +70,7 @@ public class BalloonBusterGame extends Game {
 	}
 	
 	public void loadAssets() {
-		assetmanager.load("img/sky.jpg", Texture.class);
+		assetmanager.load("img/sky.png", Texture.class);
 		assetmanager.load("img/clouds/cloud01.png", Texture.class);
 		assetmanager.load("img/clouds/cloud02.png", Texture.class);
 		assetmanager.load("img/clouds/cloud03.png", Texture.class);

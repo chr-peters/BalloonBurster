@@ -25,10 +25,10 @@ public class CloudManager {
     public CloudManager(AssetManager assetmanager){
         this.assetmanager = assetmanager;
         this.quantity = 5;
-        this.maxHeight = 80f;
-        this.minHeight = 40f;
-        this.maxVelocity = 35f;
-        this.minVelocity = 7f;
+        this.maxHeight = 160f;
+        this.minHeight = 80f;
+        this.maxVelocity = 10f;
+        this.minVelocity = 5f;
         this.clouds = new ArrayList<Cloud>();
         Random r = new Random();
         this.direction = r.nextBoolean();

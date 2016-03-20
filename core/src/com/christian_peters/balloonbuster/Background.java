@@ -20,7 +20,7 @@ public class Background {
         this.assetmanager = assetmanager;
         
         //Create Sky
-        sky = new Sky(assetmanager.get("img/sky.jpg", Texture.class), BalloonBusterGame.V_HEIGHT);
+        sky = new Sky(assetmanager.get("img/sky.png", Texture.class), BalloonBusterGame.V_HEIGHT);
         sky.setCenter(BalloonBusterGame.V_WIDTH / 2, BalloonBusterGame.V_HEIGHT / 2);
         
         //Create Clouds
