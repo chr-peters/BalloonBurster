@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Base64Coder;
 import com.badlogic.gdx.utils.Json;
 
 public class ScoreManager {
@@ -17,7 +18,7 @@ public class ScoreManager {
 		this.json = new Json();
 		this.maxSize = maxSize;
 		try {
-			scores = json.fromJson(ArrayList.class, file);
+			scores = json.fromJson(ArrayList.class, Base64Coder.decodeString(file.readString()));
 		} catch (Exception e) {
 			scores = new ArrayList<Score>();
 		}
@@ -51,7 +52,7 @@ public class ScoreManager {
 		}
 		scores.add(new Score(name, score));
 		try {
-			json.toJson(scores, file);
+			file.writeString(Base64Coder.encodeString(json.toJson(scores)), false);
 		} catch (Exception e){
 			
 		}
