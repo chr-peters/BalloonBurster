@@ -46,7 +46,7 @@ public class AboutHUD {
 		Table wrapper = new Table();
 		wrapper.top();
 		wrapper.setWidth(BalloonBusterGame.V_WIDTH * 0.8f);
-		wrapper.setHeight(BalloonBusterGame.V_HEIGHT * 0.8f);
+		wrapper.setHeight(BalloonBusterGame.V_HEIGHT * 0.65f);
 
 
 		Label aboutLabel = new Label("About", skin, "logo");
@@ -60,28 +60,28 @@ public class AboutHUD {
 
 		// create content for scrollWrapper
 		Label graphicsLabel = new Label("Graphics", skin, "bold");
-		scrollWrapper.add(graphicsLabel).expandX().width(wrapper.getWidth()*0.9f);
+		scrollWrapper.add(graphicsLabel).width(wrapper.getWidth()*0.9f);
 		scrollWrapper.row();
 
-		String longText = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, "
-				+ "sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, "
-				+ "sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. "
-				+ "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
-				+ "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor "
-				+ "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. "
-				+ "At vero eos et accusam et justo duo dolores et ea rebum. "
-				+ "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+		String longText = "Balloons created by Marius Nolden, all other graphics created "
+				+ "by Christian Peters.";
 		
 		Label longTextLabel = new Label(longText, skin);
 		longTextLabel.setWrap(true);
-		scrollWrapper.add(longTextLabel).align(Align.left).width(wrapper.getWidth()*0.9f);
+		scrollWrapper.add(longTextLabel).width(wrapper.getWidth()*0.9f);
+		scrollWrapper.row();
+		
+		String dev = "A game developed by Christian Peters";
+		Label devLabel = new Label(dev, skin, "bold-outline");
+		devLabel.setWrap(true);
+		devLabel.setAlignment(Align.center);
+		scrollWrapper.add(devLabel).width(wrapper.getWidth()*0.9f);
+
 		scrollWrapper.pack();
 
 		// create scroll pane
 		ScrollPane scrollContainer = new ScrollPane(scrollWrapper);
-		scrollContainer.debugAll();
 		scrollContainer.setOverscroll(false, true);
-		System.out.println(scrollContainer.getHeight());
 
 		wrapper.add(scrollContainer).expandX().align(Align.left);
 
@@ -91,7 +91,7 @@ public class AboutHUD {
 		wrapper.pack();
 
 		wrapper.setWidth(BalloonBusterGame.V_WIDTH * 0.8f);
-		wrapper.setHeight(BalloonBusterGame.V_HEIGHT * 0.8f);
+		wrapper.setHeight(BalloonBusterGame.V_HEIGHT * 0.65f);
 
 		wrapper.setPosition(BalloonBusterGame.V_WIDTH / 2,
 				BalloonBusterGame.V_HEIGHT - wrapper.getHeight() / 2 - 220,
