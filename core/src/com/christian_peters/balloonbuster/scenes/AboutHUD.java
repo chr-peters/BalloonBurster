@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -31,82 +32,111 @@ public class AboutHUD {
 	private Skin skin;
 	private Viewport viewport;
 	private AssetManager assetmanager;
-	
-	public AboutHUD(BalloonBusterGame game){
+
+	public AboutHUD(BalloonBusterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
-		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"), assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));	
-		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
+		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"),
+				assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));
+		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH,
+				BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
 		this.stage = new Stage(this.viewport, game.getSpriteBatch());
-		
-		Table table = new Table();
-		table.setWidth(BalloonBusterGame.V_WIDTH*0.8f);
-		table.top();
-		
+
+		// create wrapper table
+		Table wrapper = new Table();
+		wrapper.top();
+		wrapper.setWidth(BalloonBusterGame.V_WIDTH * 0.8f);
+		wrapper.setHeight(BalloonBusterGame.V_HEIGHT * 0.65f);
+
+
 		Label aboutLabel = new Label("About", skin, "logo");
-		table.add(aboutLabel).colspan(2).expandX().align(Align.left);
-		table.row();
+		wrapper.add(aboutLabel).expandX().align(Align.left);
+		wrapper.row();
+
+		// create scroll wrapper table
+		Table scrollWrapper = new Table();
+		//scrollWrapper.debug();
+		scrollWrapper.top();
+
+		// create content for scrollWrapper
+		Label graphicsLabel = new Label("Graphics", skin, "bold");
+		scrollWrapper.add(graphicsLabel).width(wrapper.getWidth()*0.9f);
+		scrollWrapper.row();
+
+		String longText = "Balloons created by Marius Nolden, all other graphics created "
+				+ "by Christian Peters.";
 		
-		table.add(new Label("Graphics:", skin, "bold")).expandX().align(Align.left);
-		String graphics = "Marius Nolden";
-		table.add(new Label(graphics, skin)).expandX().align(Align.left);
-		table.row();
+		Label longTextLabel = new Label(longText, skin);
+		longTextLabel.setWrap(true);
+		scrollWrapper.add(longTextLabel).width(wrapper.getWidth()*0.9f);
+		scrollWrapper.row();
 		
-		table.add(new Label("Music:", skin, "bold")).expandX().align(Align.left);
-		String music = "Final Striker";
-		table.add(new Label(music, skin)).expandX().align(Align.left);
-		table.row().padTop(50);
-		
-		String developer = "A game developed by Christian Peters";
-		Label devLabel = new Label(developer, skin, "bold-outline");
+		String dev = "A game developed by Christian Peters";
+		Label devLabel = new Label(dev, skin, "bold-outline");
 		devLabel.setWrap(true);
 		devLabel.setAlignment(Align.center);
-		table.add(devLabel).expandX().align(Align.left).colspan(2).width(table.getWidth());
-		
-		//set Background
-		table.setBackground(new NinePatchDrawable(new NinePatch(assetmanager.get("img/bg_ninepatch.png", Texture.class), 10, 10, 10, 10)));
-		table.pack();
-		
-		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
-		//padTop of 220
-		
+		scrollWrapper.add(devLabel).width(wrapper.getWidth()*0.9f);
+
+		scrollWrapper.pack();
+
+		// create scroll pane
+		ScrollPane scrollContainer = new ScrollPane(scrollWrapper);
+		scrollContainer.setOverscroll(false, true);
+
+		wrapper.add(scrollContainer).expandX().align(Align.left);
+
+		// set Background
+		wrapper.setBackground(new NinePatchDrawable(new NinePatch(assetmanager
+				.get("img/bg_ninepatch.png", Texture.class), 10, 10, 10, 10)));
+		wrapper.pack();
+
+		wrapper.setWidth(BalloonBusterGame.V_WIDTH * 0.8f);
+		wrapper.setHeight(BalloonBusterGame.V_HEIGHT * 0.65f);
+
+		wrapper.setPosition(BalloonBusterGame.V_WIDTH / 2,
+				BalloonBusterGame.V_HEIGHT - wrapper.getHeight() / 2 - 220,
+				Align.center);
+		// padTop of 220
+
 		ImageButton menu = new ImageButton(new TextureRegionDrawable(
 				new TextureRegion(assetmanager.get("img/buttons/btn_menu.png",
 						Texture.class))), new TextureRegionDrawable(
 				new TextureRegion(assetmanager.get(
 						"img/buttons/btn_menu_pressed.png", Texture.class))));
-		
-		menu.addListener(new ClickListener(){
+
+		menu.addListener(new ClickListener() {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				AboutHUD.this.game.transition(new MenuScreen(AboutHUD.this.game));
+				AboutHUD.this.game
+						.transition(new MenuScreen(AboutHUD.this.game));
 			}
-			
+
 		});
-		
+
 		menu.setSize(400, 70);
-		menu.setPosition(BalloonBusterGame.V_WIDTH/2, table.getY()-50, Align.top | Align.center);
-		
-		stage.addActor(table);
+		menu.setPosition(BalloonBusterGame.V_WIDTH / 2, wrapper.getY() - 50,
+				Align.top | Align.center);
+
+		stage.addActor(wrapper);
 		stage.addActor(menu);
-		
+
 		Gdx.input.setInputProcessor(stage);
 	}
-	
-	public void update(float dt){
+
+	public void update(float dt) {
 		stage.act(dt);
 	}
-	
-	public void render(){
+
+	public void render() {
 		stage.draw();
 	}
-	
-	public void resize(int width, int height){
+
+	public void resize(int width, int height) {
 		this.viewport.update(width, height);
 	}
-	
-	public void dispose(){
+
+	public void dispose() {
 		this.stage.dispose();
 	}
 }
