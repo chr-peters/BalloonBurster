@@ -72,7 +72,7 @@ public class AboutHUD {
 				Gdx.net.openURI("https://www.flickr.com/photos/craightonmiller/5944377614/");
 			}
 		});
-		scrollWrapper.add(cloud1LinkLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.add(cloud1LinkLabel).width(wrapper.getWidth() * 0.9f);
 		scrollWrapper.row();
 
 		String cloud1Text = "by Craighton Miller is licensed under CC BY 2.0";
@@ -98,6 +98,36 @@ public class AboutHUD {
 		Label cloud2TextLabel = new Label(cloud2Text, skin);
 		cloud2TextLabel.setWrap(true);
 		scrollWrapper.add(cloud2TextLabel).width(wrapper.getWidth() * 0.9f);
+		scrollWrapper.row();
+
+		//balloons attribution
+		Label balloonsTextLabel = new Label("Balloons created by Marius Nolden", skin);
+		balloonsTextLabel.setWrap(true);
+		balloonsTextLabel.setAlignment(Align.center);
+		scrollWrapper.add(balloonsTextLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.row();
+
+		//sound attribution
+		Label soundLabel = new Label("Sound", skin, "bold");
+		scrollWrapper.add(soundLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.row();
+
+		//balloon pop attribution
+		Label balloonPopLinkLabel = new Label("Balloon Pop", skin, "link");
+		balloonPopLinkLabel.setAlignment(Align.center);
+		balloonPopLinkLabel.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Gdx.net.openURI("http://www.freesound.org/people/qubodup/sounds/222373/");
+			}
+		});
+		scrollWrapper.add(balloonPopLinkLabel).width(wrapper.getWidth() * 0.9f);
+		scrollWrapper.row();
+
+		String balloonPopText = "by qubodup is licensed under CC BY 3.0";
+		Label balloonPopTextLabel = new Label(balloonPopText, skin);
+		balloonPopTextLabel.setWrap(true);
+		scrollWrapper.add(balloonPopTextLabel).width(wrapper.getWidth() * 0.9f);
 		scrollWrapper.row();
 		
 		String dev = "A game developed by Christian Peters";
