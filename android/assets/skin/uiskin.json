@@ -10,6 +10,7 @@ com.badlogic.gdx.graphics.Color: {
 	red: { a: 1, b: 0, g: 0, r: 1 },
 	black: { a: 1, b: 0, g: 0, r: 0 },
 	grey: { a: 0.5, b: 0, g: 0, r: 0 },
+    blue: { a: 1, b: 1, g: 0, r: 0 }
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
 	default: { down: default-round-down, up: default-round, font: default-font, fontColor: white },
@@ -20,6 +21,7 @@ com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	bold-outline: { font: default-bold-outline-font, fontColor: white },
 	large: {font: large-font, fontColor: black },
 	large-white: {font: large-font, fontColor: white },
+    link: {font: default-font, fontColor: blue },
 	logo: {font: logo-font, fontColor: white }
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {

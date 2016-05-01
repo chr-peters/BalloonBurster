@@ -62,20 +62,49 @@ public class AboutHUD {
 		Label graphicsLabel = new Label("Graphics", skin, "bold");
 		scrollWrapper.add(graphicsLabel).width(wrapper.getWidth()*0.9f);
 		scrollWrapper.row();
-
-		String longText = "Balloons created by Marius Nolden, all other graphics created "
-				+ "by Christian Peters.";
 		
-		Label longTextLabel = new Label(longText, skin);
-		longTextLabel.setWrap(true);
-		scrollWrapper.add(longTextLabel).width(wrapper.getWidth()*0.9f);
+		//cloud 1 attribution
+		Label cloud1LinkLabel = new Label("Clouds", skin, "link");
+		cloud1LinkLabel.setAlignment(Align.center);
+		cloud1LinkLabel.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Gdx.net.openURI("https://www.flickr.com/photos/craightonmiller/5944377614/");
+			}
+		});
+		scrollWrapper.add(cloud1LinkLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.row();
+
+		String cloud1Text = "by Craighton Miller is licensed under CC BY 2.0";
+		Label cloud1TextLabel = new Label(cloud1Text, skin);
+		cloud1TextLabel.setWrap(true);
+		scrollWrapper.add(cloud1TextLabel).width(wrapper.getWidth() * 0.9f);
+		scrollWrapper.row();
+
+		//cloud 2 attribution
+		Label cloud2LinkLabel = new Label("Single white cloud on a clear blue sky", skin, "link");
+		cloud2LinkLabel.setWrap(true);
+		cloud2LinkLabel.setAlignment(Align.center);
+		cloud2LinkLabel.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Gdx.net.openURI("https://www.flickr.com/photos/horiavarlan/4777129318");
+			}
+		});
+		scrollWrapper.add(cloud2LinkLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.row();
+
+		String cloud2Text = "by Horia Varlan is licensed under CC BY 2.0";
+		Label cloud2TextLabel = new Label(cloud2Text, skin);
+		cloud2TextLabel.setWrap(true);
+		scrollWrapper.add(cloud2TextLabel).width(wrapper.getWidth() * 0.9f);
 		scrollWrapper.row();
 		
 		String dev = "A game developed by Christian Peters";
 		Label devLabel = new Label(dev, skin, "bold-outline");
 		devLabel.setWrap(true);
 		devLabel.setAlignment(Align.center);
-		scrollWrapper.add(devLabel).width(wrapper.getWidth()*0.9f);
+		scrollWrapper.add(devLabel).width(wrapper.getWidth()*0.9f).padTop(50);
 
 		scrollWrapper.pack();
 
