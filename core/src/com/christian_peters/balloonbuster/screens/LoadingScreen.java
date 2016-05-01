@@ -6,6 +6,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonbuster.BalloonBusterGame;
 import com.christian_peters.balloonbuster.scenes.MenuHUD;
+import com.christian_peters.balloonbuster.sprites.Sky;
 
 public class LoadingScreen implements Screen{
 	
@@ -25,6 +27,7 @@ public class LoadingScreen implements Screen{
 	private Viewport viewport;
 	private BitmapFont logoFont;
 	private ShapeRenderer renderer;
+	private Sky background;
 
 	public LoadingScreen(BalloonBusterGame game){
 		this.game = game;
@@ -36,6 +39,10 @@ public class LoadingScreen implements Screen{
 		camera.update();
 		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/blow100.fnt"));
 		this.renderer = new ShapeRenderer();
+
+		//Create Sky
+		this.background = new Sky(new Texture(Gdx.files.internal("img/sky.png")), BalloonBusterGame.V_HEIGHT);
+		this.background.setCenter(BalloonBusterGame.V_WIDTH / 2, BalloonBusterGame.V_HEIGHT / 2);
 	}
 	
 	@Override
@@ -55,20 +62,22 @@ public class LoadingScreen implements Screen{
 		update(delta);
 		Gdx.gl.glClearColor(54/255f, 141/255f, 255/255f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.setProjectionMatrix(camera.combined);	
+		batch.setProjectionMatrix(camera.combined);
+
+		batch.begin();
+		background.draw(batch);
+		logoFont.draw(batch, "Balloon Buster", 0, BalloonBusterGame.V_HEIGHT - 220, BalloonBusterGame.V_WIDTH, Align.center, false);
+		batch.end();
 		
 		renderer.setProjectionMatrix(camera.combined);
 		renderer.begin(ShapeRenderer.ShapeType.Line);
 		renderer.setColor(Color.WHITE);
-		renderer.rect(BalloonBusterGame.V_WIDTH*0.1f, 640, BalloonBusterGame.V_WIDTH*0.8f, 20);
+		renderer.rect(BalloonBusterGame.V_WIDTH * 0.1f, 640, BalloonBusterGame.V_WIDTH * 0.8f, 20);
 		renderer.setAutoShapeType(true);
 		renderer.set(ShapeRenderer.ShapeType.Filled);
-		renderer.rect(BalloonBusterGame.V_WIDTH*0.1f, 640, BalloonBusterGame.V_WIDTH*0.8f*assetmanager.getProgress(), 20);
+		renderer.rect(BalloonBusterGame.V_WIDTH * 0.1f, 640, BalloonBusterGame.V_WIDTH * 0.8f * assetmanager.getProgress(), 20);
 		renderer.end();
-		
-		batch.begin();
-		logoFont.draw(batch, "Balloon Buster", 0, BalloonBusterGame.V_HEIGHT-220, BalloonBusterGame.V_WIDTH, Align.center, false);
-		batch.end();
+
 	}
 
 	@Override
