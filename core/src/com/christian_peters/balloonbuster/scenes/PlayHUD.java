@@ -87,14 +87,14 @@ public class PlayHUD {
 		table.add(gameOverLabel).colspan(2).expandX();
 		table.row().padTop(50);
 		
-		Label yourTimeLabel = new Label("Your Time:", skin);
+		Label yourTimeLabel = new Label("Your Time:", skin, "default50");
 		table.add(yourTimeLabel).expandX().align(Align.left);
 		gameOverScoreLabel = new Label(formatter.format(score)
-				+ "s", skin);
+				+ "s", skin, "default50");
 		table.add(gameOverScoreLabel).expandX().align(Align.left);
 		
 		table.row().expandX().padTop(50);
-		Label nameLabel = new Label("Your Name:", skin);
+		Label nameLabel = new Label("Your Name:", skin, "default50");
 		table.add(nameLabel).expandX().align(Align.left);
 		
 		//add name field with default name from preferences

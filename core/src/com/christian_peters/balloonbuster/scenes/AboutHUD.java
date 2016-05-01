@@ -91,7 +91,7 @@ public class AboutHUD {
 				Gdx.net.openURI("https://www.flickr.com/photos/horiavarlan/4777129318");
 			}
 		});
-		scrollWrapper.add(cloud2LinkLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.add(cloud2LinkLabel).width(wrapper.getWidth() * 0.9f).padTop(30);
 		scrollWrapper.row();
 
 		String cloud2Text = "by Horia Varlan is licensed under CC BY 2.0";
@@ -101,15 +101,27 @@ public class AboutHUD {
 		scrollWrapper.row();
 
 		//balloons attribution
-		Label balloonsTextLabel = new Label("Balloons created by Marius Nolden", skin);
+		Label balloonsTextLabel = new Label("Balloons created by", skin);
 		balloonsTextLabel.setWrap(true);
 		balloonsTextLabel.setAlignment(Align.center);
-		scrollWrapper.add(balloonsTextLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.add(balloonsTextLabel).width(wrapper.getWidth() * 0.9f).padTop(30);
 		scrollWrapper.row();
+
+		Label balloonsLinkLabel = new Label("Marius Nolden", skin, "link");
+		balloonsLinkLabel.setAlignment(Align.center);
+		balloonsLinkLabel.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Gdx.net.openURI("https://www.youtube.com/user/HydriasLP");
+			}
+		});
+		scrollWrapper.add(balloonsLinkLabel).width(wrapper.getWidth() * 0.9f);
+		scrollWrapper.row();
+
 
 		//sound attribution
 		Label soundLabel = new Label("Sound", skin, "bold");
-		scrollWrapper.add(soundLabel).width(wrapper.getWidth() * 0.9f).padTop(50);
+		scrollWrapper.add(soundLabel).width(wrapper.getWidth() * 0.9f).padTop(30);
 		scrollWrapper.row();
 
 		//balloon pop attribution
@@ -134,7 +146,7 @@ public class AboutHUD {
 		Label devLabel = new Label(dev, skin, "bold-outline");
 		devLabel.setWrap(true);
 		devLabel.setAlignment(Align.center);
-		scrollWrapper.add(devLabel).width(wrapper.getWidth()*0.9f).padTop(50);
+		scrollWrapper.add(devLabel).width(wrapper.getWidth()*0.9f).padTop(30);
 
 		scrollWrapper.pack();
 
