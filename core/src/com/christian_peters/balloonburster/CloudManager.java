@@ -1,9 +1,8 @@
-package com.christian_peters.balloonbuster;
+package com.christian_peters.balloonburster;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.christian_peters.balloonbuster.sprites.Cloud;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.Random;
  */
 public class CloudManager {
     private AssetManager assetmanager;
-    private List<Cloud> clouds;
+    private List<com.christian_peters.balloonburster.sprites.Cloud> clouds;
     private int quantity;
     private float maxHeight;
     private float minHeight;
@@ -29,7 +28,7 @@ public class CloudManager {
         this.minHeight = 80f;
         this.maxVelocity = 10f;
         this.minVelocity = 5f;
-        this.clouds = new ArrayList<Cloud>();
+        this.clouds = new ArrayList<com.christian_peters.balloonburster.sprites.Cloud>();
         Random r = new Random();
         this.direction = r.nextBoolean();
         initClouds();
@@ -41,7 +40,7 @@ public class CloudManager {
     	}
     }
     
-    private boolean isVisible(Cloud c){
+    private boolean isVisible(com.christian_peters.balloonburster.sprites.Cloud c){
     	if((c.getX()+c.getWidth()<=0 && !c.getDirection()) || (c.getX()>=BalloonBusterGame.V_WIDTH && c.getDirection())){
     		return false;
     	}
@@ -50,7 +49,7 @@ public class CloudManager {
     
     private void addCloud(boolean offScreen){
     	Random r = new Random();
-    	Cloud tmp = new Cloud(getRandomCloudTexture(), minHeight + r.nextFloat()*(maxHeight-minHeight));
+    	com.christian_peters.balloonburster.sprites.Cloud tmp = new com.christian_peters.balloonburster.sprites.Cloud(getRandomCloudTexture(), minHeight + r.nextFloat()*(maxHeight-minHeight));
 		if(this.direction){//add a new cloud at the left border and make it move to the right
 			if(offScreen) {//if the cloud is to be created off the screen
 				tmp.setX(-1*tmp.getWidth());
@@ -70,7 +69,7 @@ public class CloudManager {
 		float velocity = minVelocity + r.nextFloat()*(maxVelocity-minVelocity);
 		tmp.setVelocity(velocity);
 		//check for overlap
-		for(Cloud c: clouds){
+		for(com.christian_peters.balloonburster.sprites.Cloud c: clouds){
 			if(c.getBoundingRectangle().overlaps(tmp.getBoundingRectangle())){
 				addCloud(offScreen);
 				return;
@@ -89,8 +88,8 @@ public class CloudManager {
     }
 
     public void update(float dt){
-    	List<Cloud> invisible = new ArrayList<Cloud>();
-    	for(Cloud c: clouds){
+    	List<com.christian_peters.balloonburster.sprites.Cloud> invisible = new ArrayList<com.christian_peters.balloonburster.sprites.Cloud>();
+    	for(com.christian_peters.balloonburster.sprites.Cloud c: clouds){
     		if(isVisible(c)){
     			c.update(dt);
     		} else {
@@ -98,14 +97,14 @@ public class CloudManager {
     		}
     	}
     	//remove invisible clouds and add new ones
-    	for(Cloud c: invisible){
+    	for(com.christian_peters.balloonburster.sprites.Cloud c: invisible){
     		clouds.remove(c);
     		addCloud(true);
     	}
     }
 
     public void render(SpriteBatch batch){
-    	for(Cloud c: clouds){
+    	for(com.christian_peters.balloonburster.sprites.Cloud c: clouds){
     		c.draw(batch);
     	}
     }

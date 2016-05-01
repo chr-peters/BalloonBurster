@@ -1,10 +1,10 @@
-package com.christian_peters.balloonbuster;
+package com.christian_peters.balloonburster;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.christian_peters.balloonbuster.sprites.Sky;
-import com.christian_peters.balloonbuster.sprites.Sun;
+import com.christian_peters.balloonburster.sprites.Sky;
+import com.christian_peters.balloonburster.sprites.Sun;
 
 /**
  * Created by Chris on 06.03.2016.

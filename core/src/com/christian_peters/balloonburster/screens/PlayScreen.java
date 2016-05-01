@@ -1,4 +1,4 @@
-package com.christian_peters.balloonbuster.screens;
+package com.christian_peters.balloonburster.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -6,23 +6,20 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.christian_peters.balloonbuster.BalloonBusterGame;
-import com.christian_peters.balloonbuster.Background;
-import com.christian_peters.balloonbuster.PlayBalloons;
-import com.christian_peters.balloonbuster.scenes.PlayHUD;
+import com.christian_peters.balloonburster.Background;
+import com.christian_peters.balloonburster.PlayBalloons;
+import com.christian_peters.balloonburster.scenes.PlayHUD;
 
 /**
  * Created by Chris on 06.03.2016.
  */
 public class PlayScreen implements Screen {
 
-	private BalloonBusterGame game;
+	private com.christian_peters.balloonburster.BalloonBusterGame game;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
 	private Background background;
@@ -33,17 +30,17 @@ public class PlayScreen implements Screen {
 	private boolean gameOver;
 	public static Music music;
 
-	public PlayScreen(BalloonBusterGame game) {
+	public PlayScreen(com.christian_peters.balloonburster.BalloonBusterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
 		this.gameOver = false;
 
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH,
-				BalloonBusterGame.V_HEIGHT, camera);
-		camera.translate(BalloonBusterGame.V_WIDTH / 2,
-				BalloonBusterGame.V_HEIGHT / 2);
+		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH,
+				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, camera);
+		camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH / 2,
+				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT / 2);
 		camera.update();
 
 		this.background = new Background(assetmanager);

@@ -1,4 +1,4 @@
-package com.christian_peters.balloonbuster;
+package com.christian_peters.balloonburster;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.christian_peters.balloonbuster.sprites.Balloon;
+import com.christian_peters.balloonburster.sprites.Balloon;
 
 public class MenuBalloons {
 	private AssetManager assetmanager;

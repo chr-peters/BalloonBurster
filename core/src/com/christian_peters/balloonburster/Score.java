@@ -1,4 +1,4 @@
-package com.christian_peters.balloonbuster;
+package com.christian_peters.balloonburster;
 
 public class Score implements Comparable{
 	public String name;

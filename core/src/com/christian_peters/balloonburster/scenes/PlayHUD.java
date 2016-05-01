@@ -1,4 +1,4 @@
-package com.christian_peters.balloonbuster.scenes;
+package com.christian_peters.balloonburster.scenes;
 
 import java.text.DecimalFormat;
 
@@ -8,34 +8,28 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.christian_peters.balloonbuster.BalloonBusterGame;
-import com.christian_peters.balloonbuster.screens.MenuScreen;
-import com.christian_peters.balloonbuster.screens.PlayScreen;
-import com.christian_peters.balloonbuster.screens.ScoreScreen;
+import com.christian_peters.balloonburster.screens.MenuScreen;
 
 /**
  * Created by Chris on 06.03.2016.
  */
 public class PlayHUD {
-	private BalloonBusterGame game;
+	private com.christian_peters.balloonburster.BalloonBusterGame game;
 	private Stage stage;
 	private Viewport viewport;
 	private float score;
@@ -51,13 +45,13 @@ public class PlayHUD {
 	private Skin skin;
 	private Preferences prefs;
 
-	public PlayHUD(BalloonBusterGame game) {
+	public PlayHUD(com.christian_peters.balloonburster.BalloonBusterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.score = 0;
 		this.formatter = new DecimalFormat("0.00");
-		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH,
-				BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
+		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH,
+				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
 		this.stage = new Stage(viewport, game.getSpriteBatch());
 		this.gameOver = false;
 
@@ -70,7 +64,7 @@ public class PlayHUD {
 		this.scoreLabel = new Label(formatter.format(score) + "s",
 				skin, "bold-outline");
 		scoreLabel.setHeight(50);
-		scoreLabel.setPosition(BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
+		scoreLabel.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
 		playGroup.addActor(scoreLabel);
 		
 		playGroup.setSize(stage.getWidth(), stage.getHeight());
@@ -117,7 +111,7 @@ public class PlayHUD {
 				prefs.flush();
 				PlayHUD.this.game.getScoreManager().put(PlayHUD.this.nameField.getText(), PlayHUD.this.score);
 				Gdx.input.setOnscreenKeyboardVisible(false);
-				PlayScreen screen = (PlayScreen) PlayHUD.this.game.getScreen();
+				com.christian_peters.balloonburster.screens.PlayScreen screen = (com.christian_peters.balloonburster.screens.PlayScreen) PlayHUD.this.game.getScreen();
 				screen.restart();
 			}
 		});
@@ -148,9 +142,9 @@ public class PlayHUD {
 		table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pm))));
 		table.pack();
 		
-		table.setWidth(BalloonBusterGame.V_WIDTH);
+		table.setWidth(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH);
 		
-		table.setPosition(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
+		table.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
 
 		gameOverGroup.addActor(table);
 
@@ -164,7 +158,7 @@ public class PlayHUD {
 		if (!gameOver) {
 			score += dt;
 			scoreLabel.setText(formatter.format(score) + "s");
-			scoreLabel.setPosition(BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
+			scoreLabel.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
 		}
 		stage.act(dt);
 	}

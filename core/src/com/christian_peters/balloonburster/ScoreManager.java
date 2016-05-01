@@ -1,4 +1,4 @@
-package com.christian_peters.balloonbuster;
+package com.christian_peters.balloonburster;
 
 import java.util.ArrayList;
 import java.util.Collections;

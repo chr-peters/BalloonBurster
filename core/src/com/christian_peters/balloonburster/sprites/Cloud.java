@@ -1,4 +1,4 @@
-package com.christian_peters.balloonbuster.sprites;
+package com.christian_peters.balloonburster.sprites;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;

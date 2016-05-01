@@ -1,22 +1,20 @@
-package com.christian_peters.balloonbuster;
+package com.christian_peters.balloonburster;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.christian_peters.balloonbuster.screens.AboutScreen;
-import com.christian_peters.balloonbuster.screens.LoadingScreen;
-import com.christian_peters.balloonbuster.screens.MenuScreen;
-import com.christian_peters.balloonbuster.screens.PlayScreen;
-import com.christian_peters.balloonbuster.screens.ScoreScreen;
-import com.christian_peters.balloonbuster.screens.TransitionScreen;
+import com.christian_peters.balloonburster.screens.AboutScreen;
+import com.christian_peters.balloonburster.screens.LoadingScreen;
+import com.christian_peters.balloonburster.screens.MenuScreen;
+import com.christian_peters.balloonburster.screens.PlayScreen;
+import com.christian_peters.balloonburster.screens.ScoreScreen;
+import com.christian_peters.balloonburster.screens.TransitionScreen;
 
 public class BalloonBusterGame extends Game {
 	public static float V_WIDTH;//Not final due to later changes

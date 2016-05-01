@@ -1,4 +1,4 @@
-package com.christian_peters.balloonbuster.screens;
+package com.christian_peters.balloonburster.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -8,34 +8,31 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.christian_peters.balloonbuster.Background;
-import com.christian_peters.balloonbuster.BalloonBusterGame;
-import com.christian_peters.balloonbuster.MenuBalloons;
-import com.christian_peters.balloonbuster.scenes.AboutHUD;
+import com.christian_peters.balloonburster.scenes.AboutHUD;
 
 public class AboutScreen implements Screen{
 	
-	private BalloonBusterGame game;
+	private com.christian_peters.balloonburster.BalloonBusterGame game;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
-	private MenuBalloons balloons;
-	private Background background;
+	private com.christian_peters.balloonburster.MenuBalloons balloons;
+	private com.christian_peters.balloonburster.Background background;
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	private AboutHUD hud;
 	
-	public AboutScreen (BalloonBusterGame game){
+	public AboutScreen (com.christian_peters.balloonburster.BalloonBusterGame game){
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
 		
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(BalloonBusterGame.V_WIDTH, BalloonBusterGame.V_HEIGHT, this.camera);
-		this.camera.translate(BalloonBusterGame.V_WIDTH/2, BalloonBusterGame.V_HEIGHT/2);
+		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, this.camera);
+		this.camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT/2);
 		this.camera.update();
 		
-		this.background = new Background(assetmanager);
-		this.balloons = new MenuBalloons(assetmanager);
+		this.background = new com.christian_peters.balloonburster.Background(assetmanager);
+		this.balloons = new com.christian_peters.balloonburster.MenuBalloons(assetmanager);
 		this.hud = new AboutHUD(game);
 	}
 
