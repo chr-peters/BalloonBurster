@@ -1,0 +1,75 @@
+
+buttons.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+btn_about
+  rotate: false
+  xy: 1, 361
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_about_pressed
+  rotate: false
+  xy: 1, 289
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_menu
+  rotate: false
+  xy: 403, 361
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_menu_pressed
+  rotate: false
+  xy: 1, 217
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_play
+  rotate: false
+  xy: 403, 289
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_play_pressed
+  rotate: false
+  xy: 1, 145
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_restart
+  rotate: false
+  xy: 403, 217
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_restart_pressed
+  rotate: false
+  xy: 1, 73
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_scores
+  rotate: false
+  xy: 403, 145
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1
+btn_scores_pressed
+  rotate: false
+  xy: 1, 1
+  size: 400, 70
+  orig: 400, 70
+  offset: 0, 0
+  index: -1

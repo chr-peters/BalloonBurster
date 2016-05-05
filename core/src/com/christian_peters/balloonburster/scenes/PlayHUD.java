@@ -102,10 +102,10 @@ public class PlayHUD {
 		table.row().expandX().padTop(50);
 		
 		ImageButton restartButton = new ImageButton(new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get("img/buttons/btn_restart.png",
-						Texture.class))), new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get(
-						"img/buttons/btn_restart_pressed.png", Texture.class))));
+				assetmanager.get("img/buttons/buttons.atlas",
+						TextureAtlas.class).findRegion("btn_restart")), new TextureRegionDrawable(
+				assetmanager.get("img/buttons/buttons.atlas",
+						TextureAtlas.class).findRegion("btn_restart_pressed")));
 		restartButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());
@@ -121,10 +121,10 @@ public class PlayHUD {
 		table.row().expandX().padTop(50);		
 		
 		ImageButton mainMenuButton = new ImageButton(new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get("img/buttons/btn_menu.png",
-						Texture.class))), new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get(
-						"img/buttons/btn_menu_pressed.png", Texture.class))));
+				assetmanager.get("img/buttons/buttons.atlas",
+						TextureAtlas.class).findRegion("btn_menu")), new TextureRegionDrawable(
+				assetmanager.get("img/buttons/buttons.atlas",
+						TextureAtlas.class).findRegion("btn_menu_pressed")));
 		mainMenuButton.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
 				PlayHUD.this.prefs.putString("name", PlayHUD.this.nameField.getText());

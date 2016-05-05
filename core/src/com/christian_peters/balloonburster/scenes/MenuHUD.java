@@ -21,101 +21,101 @@ import com.christian_peters.balloonburster.screens.AboutScreen;
 import com.christian_peters.balloonburster.screens.ScoreScreen;
 
 public class MenuHUD {
-	private BalloonBursterGame game;
-	private Stage stage;
-	private Viewport viewport;
-	private Skin skin;
-	private AssetManager assetmanager;
+    private BalloonBursterGame game;
+    private Stage stage;
+    private Viewport viewport;
+    private Skin skin;
+    private AssetManager assetmanager;
 
-	public MenuHUD(BalloonBursterGame game) {
-		this.game = game;
-		this.assetmanager = game.getAssetManager();
-		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH,
-				BalloonBursterGame.V_HEIGHT, new OrthographicCamera());
-		this.stage = new Stage(viewport, game.getSpriteBatch());
+    public MenuHUD(BalloonBursterGame game) {
+        this.game = game;
+        this.assetmanager = game.getAssetManager();
+        this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH,
+                BalloonBursterGame.V_HEIGHT, new OrthographicCamera());
+        this.stage = new Stage(viewport, game.getSpriteBatch());
 
-		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+        this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-		Table table = new Table();
-		table.setFillParent(true);
-		table.top();
+        Table table = new Table();
+        table.setFillParent(true);
+        table.top();
 
-		Label logo = new Label("Balloon Burster", skin, "logo");
-		logo.getStyle().font.getData().scaleX *= 0.9f;
-		logo.getStyle().font.getData().scaleY *= 0.9f;
-		table.add(logo).expandX().padTop(220);
+        Label logo = new Label("Balloon Burster", skin, "logo");
+        logo.getStyle().font.getData().scaleX *= 0.9f;
+        logo.getStyle().font.getData().scaleY *= 0.9f;
+        table.add(logo).expandX().padTop(220);
 
-		table.row();
+        table.row();
 
-		ImageButton playButton = new ImageButton(new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get("img/buttons/btn_play.png",
-						Texture.class))), new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get(
-						"img/buttons/btn_play_pressed.png", Texture.class))));
-		playButton.addListener(new ClickListener() {
+        ImageButton playButton = new ImageButton(new TextureRegionDrawable(
+                assetmanager.get("img/buttons/buttons.atlas",
+                        TextureAtlas.class).findRegion("btn_play")), new TextureRegionDrawable(
+                assetmanager.get("img/buttons/buttons.atlas",
+                        TextureAtlas.class).findRegion("btn_play_pressed")));
+        playButton.addListener(new ClickListener() {
 
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				MenuHUD.this.game.transition(new com.christian_peters.balloonburster.screens.PlayScreen(MenuHUD.this.game));
-			}
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                MenuHUD.this.game.transition(new com.christian_peters.balloonburster.screens.PlayScreen(MenuHUD.this.game));
+            }
 
-		});
-		table.add(playButton).expandX().padTop(50).size(400, 70);
+        });
+        table.add(playButton).expandX().padTop(50).size(400, 70);
 
-		table.row();
+        table.row();
 
-		ImageButton scoreButton = new ImageButton(new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get("img/buttons/btn_scores.png",
-						Texture.class))), new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get(
-						"img/buttons/btn_scores_pressed.png", Texture.class))));
-		scoreButton.addListener(new ClickListener() {
+        ImageButton scoreButton = new ImageButton(new TextureRegionDrawable(
+                assetmanager.get("img/buttons/buttons.atlas",
+                        TextureAtlas.class).findRegion("btn_scores")), new TextureRegionDrawable(
+                assetmanager.get("img/buttons/buttons.atlas",
+                        TextureAtlas.class).findRegion("btn_scores_pressed")));
+        scoreButton.addListener(new ClickListener() {
 
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				MenuHUD.this.game
-						.transition(new ScoreScreen(MenuHUD.this.game));
-			}
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                MenuHUD.this.game
+                        .transition(new ScoreScreen(MenuHUD.this.game));
+            }
 
-		});
-		table.add(scoreButton).expandX().padTop(50).size(400, 70);
+        });
+        table.add(scoreButton).expandX().padTop(50).size(400, 70);
 
-		table.row();
+        table.row();
 
-		ImageButton aboutButton = new ImageButton(new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get("img/buttons/btn_about.png",
-						Texture.class))), new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get(
-						"img/buttons/btn_about_pressed.png", Texture.class))));
-		aboutButton.addListener(new ClickListener() {
+        ImageButton aboutButton = new ImageButton(new TextureRegionDrawable(
+                assetmanager.get("img/buttons/buttons.atlas",
+                        TextureAtlas.class).findRegion("btn_about")), new TextureRegionDrawable(
+                assetmanager.get("img/buttons/buttons.atlas",
+                        TextureAtlas.class).findRegion("btn_about_pressed")));
+        aboutButton.addListener(new ClickListener() {
 
-			@Override
-			public void clicked(InputEvent event, float x, float y) {
-				MenuHUD.this.game
-						.transition(new AboutScreen(MenuHUD.this.game));
-			}
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                MenuHUD.this.game
+                        .transition(new AboutScreen(MenuHUD.this.game));
+            }
 
-		});
-		table.add(aboutButton).expandX().padTop(50).size(400, 70);
+        });
+        table.add(aboutButton).expandX().padTop(50).size(400, 70);
 
-		stage.addActor(table);
+        stage.addActor(table);
 
-		Gdx.input.setInputProcessor(stage);
-	}
+        Gdx.input.setInputProcessor(stage);
+    }
 
-	public void update(float dt) {
-		stage.act(dt);
-	}
+    public void update(float dt) {
+        stage.act(dt);
+    }
 
-	public void render() {
-		stage.draw();
-	}
+    public void render() {
+        stage.draw();
+    }
 
-	public void resize(int width, int height) {
-		this.viewport.update(width, height);
-	}
+    public void resize(int width, int height) {
+        this.viewport.update(width, height);
+    }
 
-	public void dispose() {
+    public void dispose() {
 
-	}
+    }
 }

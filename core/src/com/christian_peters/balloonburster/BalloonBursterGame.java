@@ -70,23 +70,14 @@ public class BalloonBursterGame extends Game {
 	public void loadAssets() {
 		assetmanager.load("img/sky.png", Texture.class);
 		assetmanager.load("img/clouds/clouds.atlas", TextureAtlas.class);
-		assetmanager.load("img/buttons/btn_play.png", Texture.class);
-		assetmanager.load("img/buttons/btn_play_pressed.png", Texture.class);
-		assetmanager.load("img/buttons/btn_scores.png", Texture.class);
-		assetmanager.load("img/buttons/btn_scores_pressed.png", Texture.class);
-		assetmanager.load("img/buttons/btn_about.png", Texture.class);
-		assetmanager.load("img/buttons/btn_about_pressed.png", Texture.class);
-		assetmanager.load("img/buttons/btn_menu.png", Texture.class);
-		assetmanager.load("img/buttons/btn_menu_pressed.png", Texture.class);
-		assetmanager.load("img/buttons/btn_restart.png", Texture.class);
-		assetmanager.load("img/buttons/btn_restart_pressed.png", Texture.class);
+		assetmanager.load("img/buttons/buttons.atlas", TextureAtlas.class);
+		assetmanager.load("img/balloons/balloons.atlas", TextureAtlas.class);
 		assetmanager.load("img/burst.png", Texture.class);
 		assetmanager.load("img/sun.png", Texture.class);
 		assetmanager.load("img/bg_ninepatch.png", Texture.class);
 		assetmanager.load("skin/uiskin.atlas", TextureAtlas.class);
 		assetmanager.load("sound/playmusic.mp3", Music.class);
 		assetmanager.load("sound/burst.mp3", Sound.class);
-		assetmanager.load("img/balloons/balloons.atlas", TextureAtlas.class);
 	}
 
 	public SpriteBatch getSpriteBatch(){

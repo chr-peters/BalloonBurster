@@ -76,10 +76,10 @@ public class ScoreHUD {
 		//padTop of 220
 		
 		ImageButton menu = new ImageButton(new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get("img/buttons/btn_menu.png",
-						Texture.class))), new TextureRegionDrawable(
-				new TextureRegion(assetmanager.get(
-						"img/buttons/btn_menu_pressed.png", Texture.class))));
+				assetmanager.get("img/buttons/buttons.atlas",
+						TextureAtlas.class).findRegion("btn_menu")), new TextureRegionDrawable(
+				assetmanager.get("img/buttons/buttons.atlas",
+						TextureAtlas.class).findRegion("btn_menu_pressed")));
 		menu.addListener(new ClickListener(){
 
 			@Override
