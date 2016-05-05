@@ -35,6 +35,8 @@ public class LoadingScreen implements Screen{
 		camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT/2);
 		camera.update();
 		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/blow100.fnt"));
+		this.logoFont.getData().scaleX *= 0.9f;
+		this.logoFont.getData().scaleY *= 0.9f;
 		this.renderer = new ShapeRenderer();
 
 		//Create Sky

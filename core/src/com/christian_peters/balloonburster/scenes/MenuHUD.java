@@ -41,6 +41,8 @@ public class MenuHUD {
 		table.top();
 
 		Label logo = new Label("Balloon Burster", skin, "logo");
+		logo.getStyle().font.getData().scaleX *= 0.9f;
+		logo.getStyle().font.getData().scaleY *= 0.9f;
 		table.add(logo).expandX().padTop(220);
 
 		table.row();
