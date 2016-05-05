@@ -1,0 +1,26 @@
+
+clouds.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cloud02
+  rotate: false
+  xy: 1, 532
+  size: 896, 475
+  orig: 896, 475
+  offset: 0, 0
+  index: -1
+cloud01
+  rotate: false
+  xy: 1, 241
+  size: 821, 289
+  orig: 821, 289
+  offset: 0, 0
+  index: -1
+cloud03
+  rotate: false
+  xy: 1, 1
+  size: 500, 238
+  orig: 500, 238
+  offset: 0, 0
+  index: -1

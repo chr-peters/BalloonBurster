@@ -69,9 +69,7 @@ public class BalloonBursterGame extends Game {
 	
 	public void loadAssets() {
 		assetmanager.load("img/sky.png", Texture.class);
-		assetmanager.load("img/clouds/cloud01.png", Texture.class);
-		assetmanager.load("img/clouds/cloud02.png", Texture.class);
-		assetmanager.load("img/clouds/cloud03.png", Texture.class);
+		assetmanager.load("img/clouds/clouds.atlas", TextureAtlas.class);
 		assetmanager.load("img/buttons/btn_play.png", Texture.class);
 		assetmanager.load("img/buttons/btn_play_pressed.png", Texture.class);
 		assetmanager.load("img/buttons/btn_scores.png", Texture.class);

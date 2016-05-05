@@ -2,6 +2,7 @@ package com.christian_peters.balloonburster.sprites;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
  * Created by Chris on 06.03.2016.
@@ -10,7 +11,7 @@ public class Cloud extends Sprite {
     private boolean movingRight;
     private float velocity;
     
-    public Cloud(Texture texture, float height){
+    public Cloud(TextureRegion texture, float height){
     	super(texture);
     	
     	float aspect = super.getWidth()/super.getHeight();

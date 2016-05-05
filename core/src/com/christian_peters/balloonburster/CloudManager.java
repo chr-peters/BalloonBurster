@@ -3,6 +3,8 @@ package com.christian_peters.balloonburster;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,12 +80,12 @@ public class CloudManager {
 		clouds.add(tmp);
     }
     
-    private Texture getRandomCloudTexture(){
+    private TextureRegion getRandomCloudTexture(){
     	Random r = new Random();
     	switch(r.nextInt(3)){
-    		case 0: return assetmanager.get("img/clouds/cloud01.png", Texture.class);
-    		case 1: return assetmanager.get("img/clouds/cloud02.png", Texture.class);
-    		default:return assetmanager.get("img/clouds/cloud03.png", Texture.class);
+    		case 0: return assetmanager.get("img/clouds/clouds.atlas", TextureAtlas.class).findRegion("cloud01");
+    		case 1: return assetmanager.get("img/clouds/clouds.atlas", TextureAtlas.class).findRegion("cloud02");
+    		default:return assetmanager.get("img/clouds/clouds.atlas", TextureAtlas.class).findRegion("cloud03");
     	}
     }
 
