@@ -21,10 +21,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.ScoreManager;
 
 public class ScoreHUD {
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private Stage stage;
 	private Skin skin;
 	private Viewport viewport;
@@ -32,15 +33,15 @@ public class ScoreHUD {
 	private ScoreManager scores;
 	private DecimalFormat formatter;
 	
-	public ScoreHUD(com.christian_peters.balloonburster.BalloonBusterGame game){
+	public ScoreHUD(BalloonBursterGame game){
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH, BalloonBursterGame.V_HEIGHT, new OrthographicCamera());
 		this.scores = game.getScoreManager();
 		this.formatter = new DecimalFormat("0.00");
 		this.stage = new Stage(viewport, game.getSpriteBatch());
 		
-		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"), assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));
+		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 		
 		Table table = new Table();
 		table.top();
@@ -70,8 +71,8 @@ public class ScoreHUD {
 		table.setBackground(new NinePatchDrawable(new NinePatch(assetmanager.get("img/bg_ninepatch.png", Texture.class), 10, 10, 10, 10)));
 		table.pack();
 		
-		table.setWidth(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH*0.8f);
-		table.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
+		table.setWidth(BalloonBursterGame.V_WIDTH*0.8f);
+		table.setPosition(BalloonBursterGame.V_WIDTH/2, BalloonBursterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
 		//padTop of 220
 		
 		ImageButton menu = new ImageButton(new TextureRegionDrawable(
@@ -88,7 +89,7 @@ public class ScoreHUD {
 			
 		});
 		menu.setSize(400, 70);
-		menu.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, table.getY()-50, Align.top | Align.center);
+		menu.setPosition(BalloonBursterGame.V_WIDTH/2, table.getY()-50, Align.top | Align.center);
 		
 		stage.addActor(table);
 		stage.addActor(menu);

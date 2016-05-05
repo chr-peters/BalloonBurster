@@ -20,28 +20,28 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 
 public class AboutHUD {
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private Stage stage;
 	private Skin skin;
 	private Viewport viewport;
 	private AssetManager assetmanager;
 
-	public AboutHUD(com.christian_peters.balloonburster.BalloonBusterGame game) {
+	public AboutHUD(BalloonBursterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
-		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"),
-				assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH,
-				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
+		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH,
+				BalloonBursterGame.V_HEIGHT, new OrthographicCamera());
 		this.stage = new Stage(this.viewport, game.getSpriteBatch());
 
 		// create wrapper table
 		Table wrapper = new Table();
 		wrapper.top();
-		wrapper.setWidth(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH * 0.8f);
-		wrapper.setHeight(com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT * 0.65f);
+		wrapper.setWidth(BalloonBursterGame.V_WIDTH * 0.8f);
+		wrapper.setHeight(BalloonBursterGame.V_HEIGHT * 0.65f);
 
 
 		Label aboutLabel = new Label("About", skin, "logo");
@@ -156,11 +156,11 @@ public class AboutHUD {
 				.get("img/bg_ninepatch.png", Texture.class), 10, 10, 10, 10)));
 		wrapper.pack();
 
-		wrapper.setWidth(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH * 0.8f);
-		wrapper.setHeight(com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT * 0.65f);
+		wrapper.setWidth(BalloonBursterGame.V_WIDTH * 0.8f);
+		wrapper.setHeight(BalloonBursterGame.V_HEIGHT * 0.65f);
 
-		wrapper.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH / 2,
-				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT - wrapper.getHeight() / 2 - 220,
+		wrapper.setPosition(BalloonBursterGame.V_WIDTH / 2,
+				BalloonBursterGame.V_HEIGHT - wrapper.getHeight() / 2 - 220,
 				Align.center);
 		// padTop of 220
 
@@ -181,7 +181,7 @@ public class AboutHUD {
 		});
 
 		menu.setSize(400, 70);
-		menu.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH / 2, wrapper.getY() - 50,
+		menu.setPosition(BalloonBursterGame.V_WIDTH / 2, wrapper.getY() - 50,
 				Align.top | Align.center);
 
 		stage.addActor(wrapper);

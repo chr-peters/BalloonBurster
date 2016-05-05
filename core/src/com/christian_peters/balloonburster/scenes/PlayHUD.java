@@ -23,13 +23,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.screens.MenuScreen;
 
 /**
  * Created by Chris on 06.03.2016.
  */
 public class PlayHUD {
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private Stage stage;
 	private Viewport viewport;
 	private float score;
@@ -45,13 +46,13 @@ public class PlayHUD {
 	private Skin skin;
 	private Preferences prefs;
 
-	public PlayHUD(com.christian_peters.balloonburster.BalloonBusterGame game) {
+	public PlayHUD(BalloonBursterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.score = 0;
 		this.formatter = new DecimalFormat("0.00");
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH,
-				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH,
+				BalloonBursterGame.V_HEIGHT, new OrthographicCamera());
 		this.stage = new Stage(viewport, game.getSpriteBatch());
 		this.gameOver = false;
 
@@ -64,7 +65,7 @@ public class PlayHUD {
 		this.scoreLabel = new Label(formatter.format(score) + "s",
 				skin, "bold-outline");
 		scoreLabel.setHeight(50);
-		scoreLabel.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
+		scoreLabel.setPosition(BalloonBursterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
 		playGroup.addActor(scoreLabel);
 		
 		playGroup.setSize(stage.getWidth(), stage.getHeight());
@@ -142,9 +143,9 @@ public class PlayHUD {
 		table.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pm))));
 		table.pack();
 		
-		table.setWidth(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH);
+		table.setWidth(BalloonBursterGame.V_WIDTH);
 		
-		table.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
+		table.setPosition(BalloonBursterGame.V_WIDTH/2, BalloonBursterGame.V_HEIGHT-table.getHeight()/2-220, Align.center);
 
 		gameOverGroup.addActor(table);
 
@@ -158,7 +159,7 @@ public class PlayHUD {
 		if (!gameOver) {
 			score += dt;
 			scoreLabel.setText(formatter.format(score) + "s");
-			scoreLabel.setPosition(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
+			scoreLabel.setPosition(BalloonBursterGame.V_WIDTH/2 - scoreLabel.getPrefWidth()/2, 3);
 		}
 		stage.act(dt);
 	}

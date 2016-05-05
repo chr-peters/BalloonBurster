@@ -41,7 +41,7 @@ public class MenuBalloons {
 	}
 
 	private boolean isVisible(Balloon b) {
-		if (b.getY() >= BalloonBusterGame.V_HEIGHT) {
+		if (b.getY() >= BalloonBursterGame.V_HEIGHT) {
 			return false;
 		}
 		return true;
@@ -58,14 +58,14 @@ public class MenuBalloons {
 				"sound/burst.mp3", Sound.class), tmpHeight);
 		if(offScreen) {
 			tmp.setPosition(
-					r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
+					r.nextFloat() * (BalloonBursterGame.V_WIDTH - tmp.getWidth()),
 					-tmp.getHeight());
 		} else {
 			tmp.setPosition(
 					r.nextFloat()
-							* (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
+							* (BalloonBursterGame.V_WIDTH - tmp.getWidth()),
 					r.nextFloat()
-							* (BalloonBusterGame.V_HEIGHT - tmp.getHeight()));
+							* (BalloonBursterGame.V_HEIGHT - tmp.getHeight()));
 		}
 		tmp.setVelocity(balloonMinVelocity + r.nextFloat()
 				* (balloonMaxVelocity - balloonMinVelocity));

@@ -8,11 +8,12 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.scenes.AboutHUD;
 
 public class AboutScreen implements Screen{
 	
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
 	private com.christian_peters.balloonburster.MenuBalloons balloons;
@@ -21,14 +22,14 @@ public class AboutScreen implements Screen{
 	private Viewport viewport;
 	private AboutHUD hud;
 	
-	public AboutScreen (com.christian_peters.balloonburster.BalloonBusterGame game){
+	public AboutScreen (BalloonBursterGame game){
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
 		
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, this.camera);
-		this.camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT/2);
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH, BalloonBursterGame.V_HEIGHT, this.camera);
+		this.camera.translate(BalloonBursterGame.V_WIDTH/2, BalloonBursterGame.V_HEIGHT/2);
 		this.camera.update();
 		
 		this.background = new com.christian_peters.balloonburster.Background(assetmanager);

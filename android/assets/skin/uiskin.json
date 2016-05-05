@@ -3,33 +3,22 @@ com.badlogic.gdx.graphics.g2d.BitmapFont: { default-font: { file: fonts/altehaas
   											default-font50: { file: fonts/altehaas50.fnt },
 											default-bold-font: { file: fonts/altehaas50bold.fnt },
 											default-bold-outline-font: { file: fonts/altehaas50boldoutline.fnt },
-											logo-font: { file: fonts/blow100.fnt },
-											large-font: {file: fonts/altehaas90bold.fnt } },
+											logo-font: { file: fonts/blow100.fnt }},
 com.badlogic.gdx.graphics.Color: {
-	green: { a: 1, b: 0, g: 1, r: 0 },
 	white: { a: 1, b: 1, g: 1, r: 1 },
-	red: { a: 1, b: 0, g: 0, r: 1 },
 	black: { a: 1, b: 0, g: 0, r: 0 },
 	grey: { a: 0.5, b: 0, g: 0, r: 0 },
     blue: { a: 1, b: 1, g: 0, r: 0 }
-},
-com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
-	default: { down: default-round-down, up: default-round, font: default-font, fontColor: white },
 },
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: { font: default-font, fontColor: black },
     default50: { font: default-font50, fontColor: black },
 	bold: { font: default-bold-font, fontColor: black },
 	bold-outline: { font: default-bold-outline-font, fontColor: white },
-	large: {font: large-font, fontColor: black },
-	large-white: {font: large-font, fontColor: white },
     link: {font: default-font, fontColor: blue },
 	logo: {font: logo-font, fontColor: white }
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
 	default: { selection: selection, font: default-font50, fontColor: grey, focusedFontColor: black, cursor: cursor }
-},
-com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
-	default: { vScroll: default-scroll, hScrollKnob: default-round-large, background: default-rect, hScroll: default-scroll, vScrollKnob: default-round-large }
-},
+}
 }

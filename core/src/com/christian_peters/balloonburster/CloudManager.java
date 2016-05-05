@@ -41,7 +41,7 @@ public class CloudManager {
     }
     
     private boolean isVisible(com.christian_peters.balloonburster.sprites.Cloud c){
-    	if((c.getX()+c.getWidth()<=0 && !c.getDirection()) || (c.getX()>=BalloonBusterGame.V_WIDTH && c.getDirection())){
+    	if((c.getX()+c.getWidth()<=0 && !c.getDirection()) || (c.getX()>= BalloonBursterGame.V_WIDTH && c.getDirection())){
     		return false;
     	}
     	return true;
@@ -54,18 +54,18 @@ public class CloudManager {
 			if(offScreen) {//if the cloud is to be created off the screen
 				tmp.setX(-1*tmp.getWidth());
 			} else {
-				tmp.setX(r.nextInt((int) (BalloonBusterGame.V_WIDTH-tmp.getWidth())));
+				tmp.setX(r.nextInt((int) (BalloonBursterGame.V_WIDTH-tmp.getWidth())));
 			}
 			tmp.setDirection(true);
 		} else {
 			if(offScreen) {
-				tmp.setX(BalloonBusterGame.V_WIDTH);
+				tmp.setX(BalloonBursterGame.V_WIDTH);
 			} else {
-				tmp.setX(r.nextInt((int) (BalloonBusterGame.V_WIDTH-tmp.getWidth())));
+				tmp.setX(r.nextInt((int) (BalloonBursterGame.V_WIDTH-tmp.getWidth())));
 			}
 			tmp.setDirection(false);
 		}
-		tmp.setY(BalloonBusterGame.V_HEIGHT/3 + r.nextInt((int)(BalloonBusterGame.V_HEIGHT*2/3 - tmp.getHeight())));
+		tmp.setY(BalloonBursterGame.V_HEIGHT/3 + r.nextInt((int)(BalloonBursterGame.V_HEIGHT*2/3 - tmp.getHeight())));
 		float velocity = minVelocity + r.nextFloat()*(maxVelocity-minVelocity);
 		tmp.setVelocity(velocity);
 		//check for overlap

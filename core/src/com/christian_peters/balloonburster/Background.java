@@ -20,15 +20,15 @@ public class Background {
         this.assetmanager = assetmanager;
         
         //Create Sky
-        sky = new Sky(assetmanager.get("img/sky.png", Texture.class), BalloonBusterGame.V_HEIGHT);
-        sky.setCenter(BalloonBusterGame.V_WIDTH / 2, BalloonBusterGame.V_HEIGHT / 2);
+        sky = new Sky(assetmanager.get("img/sky.png", Texture.class), BalloonBursterGame.V_HEIGHT);
+        sky.setCenter(BalloonBursterGame.V_WIDTH / 2, BalloonBursterGame.V_HEIGHT / 2);
         
         //Create Clouds
         clouds = new CloudManager(assetmanager);
         
         //Create Sun
         sun = new Sun(assetmanager.get("img/sun.png", Texture.class), 400);
-        sun.setCenter(BalloonBusterGame.V_WIDTH*0.8f, 1100f);
+        sun.setCenter(BalloonBursterGame.V_WIDTH*0.8f, 1100f);
         sun.setOrigin(sun.getWidth()/2, sun.getHeight()/2);
     }
 

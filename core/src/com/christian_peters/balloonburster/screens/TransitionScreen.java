@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 
 public class TransitionScreen implements Screen{
 	
@@ -15,11 +16,11 @@ public class TransitionScreen implements Screen{
 	private Screen start;
 	private Screen end;
 	private ShapeRenderer renderer;
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	
-	public TransitionScreen(com.christian_peters.balloonburster.BalloonBusterGame game, Screen start, Screen end){
+	public TransitionScreen(BalloonBursterGame game, Screen start, Screen end){
 		this.fadeTime = 0.4f;
 		this.timePassed = 0f;
 		this.start = start;
@@ -28,8 +29,8 @@ public class TransitionScreen implements Screen{
 		this.game =game;
 		
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, camera);
-		camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT/2);
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH, BalloonBursterGame.V_HEIGHT, camera);
+		camera.translate(BalloonBursterGame.V_WIDTH/2, BalloonBursterGame.V_HEIGHT/2);
 		camera.update();
 		renderer = new ShapeRenderer();
 	}
@@ -48,7 +49,7 @@ public class TransitionScreen implements Screen{
 			renderer.setProjectionMatrix(camera.combined);
 			renderer.begin(ShapeRenderer.ShapeType.Filled);
 			renderer.setColor(0, 0, 0, timePassed/(fadeTime/2));
-			renderer.rect(0, 0, com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT);
+			renderer.rect(0, 0, BalloonBursterGame.V_WIDTH, BalloonBursterGame.V_HEIGHT);
 			renderer.end();
 			Gdx.graphics.getGL20().glDisable(GL20.GL_BLEND);
 		} else if(fadeTime>timePassed){
@@ -57,7 +58,7 @@ public class TransitionScreen implements Screen{
 			renderer.setProjectionMatrix(camera.combined);
 			renderer.begin(ShapeRenderer.ShapeType.Filled);
 			renderer.setColor(0, 0, 0, 1-Math.min(1, (timePassed-fadeTime/2)/(fadeTime/2)));
-			renderer.rect(0, 0, com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT);
+			renderer.rect(0, 0, BalloonBursterGame.V_WIDTH, BalloonBursterGame.V_HEIGHT);
 			renderer.end();
 			Gdx.graphics.getGL20().glDisable(GL20.GL_BLEND);
 		} else {

@@ -16,7 +16,7 @@ import com.christian_peters.balloonburster.screens.PlayScreen;
 import com.christian_peters.balloonburster.screens.ScoreScreen;
 import com.christian_peters.balloonburster.screens.TransitionScreen;
 
-public class BalloonBusterGame extends Game {
+public class BalloonBursterGame extends Game {
 	public static float V_WIDTH;//Not final due to later changes
 	// regarding to different Screen resolutions
 	public static float V_HEIGHT;

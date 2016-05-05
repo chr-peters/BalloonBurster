@@ -8,9 +8,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 
 public class MenuScreen implements Screen{
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private com.christian_peters.balloonburster.scenes.MenuHUD hud;
 	private com.christian_peters.balloonburster.Background background;
 	private com.christian_peters.balloonburster.MenuBalloons balloons;
@@ -19,13 +20,13 @@ public class MenuScreen implements Screen{
 	private OrthographicCamera camera;
 	private Viewport viewport;
 	
-	public MenuScreen(com.christian_peters.balloonburster.BalloonBusterGame game){
+	public MenuScreen(BalloonBursterGame game){
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, camera);
-		camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT/2);
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH, BalloonBursterGame.V_HEIGHT, camera);
+		camera.translate(BalloonBursterGame.V_WIDTH/2, BalloonBursterGame.V_HEIGHT/2);
 		camera.update();
 		this.hud = new com.christian_peters.balloonburster.scenes.MenuHUD(game);
 		this.background = new com.christian_peters.balloonburster.Background(assetmanager);

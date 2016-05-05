@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonburster.Background;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.PlayBalloons;
 import com.christian_peters.balloonburster.scenes.PlayHUD;
 
@@ -19,7 +20,7 @@ import com.christian_peters.balloonburster.scenes.PlayHUD;
  */
 public class PlayScreen implements Screen {
 
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
 	private Background background;
@@ -30,17 +31,17 @@ public class PlayScreen implements Screen {
 	private boolean gameOver;
 	public static Music music;
 
-	public PlayScreen(com.christian_peters.balloonburster.BalloonBusterGame game) {
+	public PlayScreen(BalloonBursterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
 		this.gameOver = false;
 
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH,
-				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, camera);
-		camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH / 2,
-				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT / 2);
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH,
+				BalloonBursterGame.V_HEIGHT, camera);
+		camera.translate(BalloonBursterGame.V_WIDTH / 2,
+				BalloonBursterGame.V_HEIGHT / 2);
 		camera.update();
 
 		this.background = new Background(assetmanager);

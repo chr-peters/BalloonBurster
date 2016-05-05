@@ -2,6 +2,7 @@ package com.christian_peters.balloonburster.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
@@ -10,6 +11,6 @@ public class DesktopLauncher {
 		//config.height = 1280/2;
 		config.width = 1600/3;
 		config.height = 2560/3;
-		new LwjglApplication(new com.christian_peters.balloonburster.BalloonBusterGame(), config);
+		new LwjglApplication(new BalloonBursterGame(), config);
 	}
 }

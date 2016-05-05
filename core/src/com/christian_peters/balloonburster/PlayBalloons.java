@@ -87,7 +87,7 @@ public class PlayBalloons {
 
 	public boolean isGameOver() {
 		for (com.christian_peters.balloonburster.sprites.Balloon b : balloons) {
-			if (b.getY() >= BalloonBusterGame.V_HEIGHT) {
+			if (b.getY() >= BalloonBursterGame.V_HEIGHT) {
 				return true;
 			}
 		}
@@ -114,7 +114,7 @@ public class PlayBalloons {
 						"img/burst.png", Texture.class), assetmanager.get(
 								"sound/burst.mp3", Sound.class),this.balloonHeight);
 		tmp.setPosition(
-				r.nextFloat() * (BalloonBusterGame.V_WIDTH - tmp.getWidth()),
+				r.nextFloat() * (BalloonBursterGame.V_WIDTH - tmp.getWidth()),
 				-1 * tmp.getHeight());
 		tmp.setVelocity(curVelocity);
 		balloons.add(tmp);

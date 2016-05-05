@@ -16,25 +16,25 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.screens.AboutScreen;
 import com.christian_peters.balloonburster.screens.ScoreScreen;
 
 public class MenuHUD {
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private Stage stage;
 	private Viewport viewport;
 	private Skin skin;
 	private AssetManager assetmanager;
 
-	public MenuHUD(com.christian_peters.balloonburster.BalloonBusterGame game) {
+	public MenuHUD(BalloonBursterGame game) {
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH,
-				com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, new OrthographicCamera());
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH,
+				BalloonBursterGame.V_HEIGHT, new OrthographicCamera());
 		this.stage = new Stage(viewport, game.getSpriteBatch());
 
-		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"),
-				assetmanager.get("skin/uiskin.atlas", TextureAtlas.class));
+		this.skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
 		Table table = new Table();
 		table.setFillParent(true);

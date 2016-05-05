@@ -13,11 +13,12 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.sprites.Sky;
 
 public class LoadingScreen implements Screen{
 	
-	private com.christian_peters.balloonburster.BalloonBusterGame game;
+	private BalloonBursterGame game;
 	private AssetManager assetmanager;
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
@@ -26,13 +27,13 @@ public class LoadingScreen implements Screen{
 	private ShapeRenderer renderer;
 	private Sky background;
 
-	public LoadingScreen(com.christian_peters.balloonburster.BalloonBusterGame game){
+	public LoadingScreen(BalloonBursterGame game){
 		this.game = game;
 		this.assetmanager = game.getAssetManager();
 		this.batch = game.getSpriteBatch();
 		this.camera = new OrthographicCamera();
-		this.viewport = new FitViewport(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT, camera);
-		camera.translate(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH/2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT/2);
+		this.viewport = new FitViewport(BalloonBursterGame.V_WIDTH, BalloonBursterGame.V_HEIGHT, camera);
+		camera.translate(BalloonBursterGame.V_WIDTH/2, BalloonBursterGame.V_HEIGHT/2);
 		camera.update();
 		this.logoFont = new BitmapFont(Gdx.files.internal("fonts/blow100.fnt"));
 		this.logoFont.getData().scaleX *= 0.9f;
@@ -40,8 +41,8 @@ public class LoadingScreen implements Screen{
 		this.renderer = new ShapeRenderer();
 
 		//Create Sky
-		this.background = new Sky(new Texture(Gdx.files.internal("img/sky.png")), com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT);
-		this.background.setCenter(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH / 2, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT / 2);
+		this.background = new Sky(new Texture(Gdx.files.internal("img/sky.png")), BalloonBursterGame.V_HEIGHT);
+		this.background.setCenter(BalloonBursterGame.V_WIDTH / 2, BalloonBursterGame.V_HEIGHT / 2);
 	}
 	
 	@Override
@@ -65,16 +66,16 @@ public class LoadingScreen implements Screen{
 
 		batch.begin();
 		background.draw(batch);
-		logoFont.draw(batch, "Balloon Burster", 0, com.christian_peters.balloonburster.BalloonBusterGame.V_HEIGHT - 220, com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH, Align.center, false);
+		logoFont.draw(batch, "Balloon Burster", 0, BalloonBursterGame.V_HEIGHT - 220, BalloonBursterGame.V_WIDTH, Align.center, false);
 		batch.end();
 		
 		renderer.setProjectionMatrix(camera.combined);
 		renderer.begin(ShapeRenderer.ShapeType.Line);
 		renderer.setColor(Color.WHITE);
-		renderer.rect(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH * 0.1f, 640, com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH * 0.8f, 20);
+		renderer.rect(BalloonBursterGame.V_WIDTH * 0.1f, 640, BalloonBursterGame.V_WIDTH * 0.8f, 20);
 		renderer.setAutoShapeType(true);
 		renderer.set(ShapeRenderer.ShapeType.Filled);
-		renderer.rect(com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH * 0.1f, 640, com.christian_peters.balloonburster.BalloonBusterGame.V_WIDTH * 0.8f * assetmanager.getProgress(), 20);
+		renderer.rect(BalloonBursterGame.V_WIDTH * 0.1f, 640, BalloonBursterGame.V_WIDTH * 0.8f * assetmanager.getProgress(), 20);
 		renderer.end();
 
 	}
