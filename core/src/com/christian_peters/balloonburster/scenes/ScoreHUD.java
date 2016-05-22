@@ -1,14 +1,11 @@
 package com.christian_peters.balloonburster.scenes;
 
-import java.text.DecimalFormat;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -24,6 +21,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.ScoreManager;
 import com.christian_peters.balloonburster.screens.MenuScreen;
+
+import java.text.DecimalFormat;
 
 public class ScoreHUD {
 	private BalloonBursterGame game;

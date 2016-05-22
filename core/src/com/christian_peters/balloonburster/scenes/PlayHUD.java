@@ -1,7 +1,5 @@
 package com.christian_peters.balloonburster.scenes;
 
-import java.text.DecimalFormat;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
@@ -25,6 +23,8 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.screens.MenuScreen;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by Chris on 06.03.2016.

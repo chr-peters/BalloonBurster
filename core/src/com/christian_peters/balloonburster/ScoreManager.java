@@ -1,11 +1,11 @@
 package com.christian_peters.balloonburster;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Base64Coder;
 import com.badlogic.gdx.utils.Json;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class ScoreManager {
 	private ArrayList<Score> scores;
