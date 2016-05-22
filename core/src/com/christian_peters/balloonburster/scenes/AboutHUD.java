@@ -119,6 +119,23 @@ public class AboutHUD {
 		scrollWrapper.add(soundLabel).width(wrapper.getWidth() * 0.9f).padTop(30);
 		scrollWrapper.row();
 
+		//music attribution
+		Label musicLinkLabel = new Label("Flight", skin, "link");
+		musicLinkLabel.setAlignment(Align.center);
+		musicLinkLabel.addListener(new ClickListener() {
+			public void clicked(InputEvent e, float x, float y) {
+				Gdx.net.openURI("https://soundcloud.com/iamhydra/flight");
+			}
+		});
+		scrollWrapper.add(musicLinkLabel).width(wrapper.getWidth() * 0.9f);
+		scrollWrapper.row();
+
+		String musicText = "by Hydra and LucienMusique is used as background music.";
+		Label musicTextLabel = new Label(musicText, skin);
+		musicTextLabel.setWrap(true);
+		scrollWrapper.add(musicTextLabel).width(wrapper.getWidth() * 0.9f);
+		scrollWrapper.row();
+
 		//balloon pop attribution
 		Label balloonPopLinkLabel = new Label("Balloon Pop", skin, "link");
 		balloonPopLinkLabel.setAlignment(Align.center);
@@ -128,7 +145,7 @@ public class AboutHUD {
 				Gdx.net.openURI("http://www.freesound.org/people/qubodup/sounds/222373/");
 			}
 		});
-		scrollWrapper.add(balloonPopLinkLabel).width(wrapper.getWidth() * 0.9f);
+		scrollWrapper.add(balloonPopLinkLabel).width(wrapper.getWidth() * 0.9f).padTop(30);
 		scrollWrapper.row();
 
 		String balloonPopText = "by qubodup is licensed under CC BY 3.0";

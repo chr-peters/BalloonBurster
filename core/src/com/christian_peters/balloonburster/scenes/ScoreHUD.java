@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.christian_peters.balloonburster.BalloonBursterGame;
 import com.christian_peters.balloonburster.ScoreManager;
+import com.christian_peters.balloonburster.screens.MenuScreen;
 
 public class ScoreHUD {
 	private BalloonBursterGame game;
@@ -84,7 +85,7 @@ public class ScoreHUD {
 
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
-				ScoreHUD.this.game.transition(new com.christian_peters.balloonburster.screens.MenuScreen(ScoreHUD.this.game));
+				ScoreHUD.this.game.transition(new MenuScreen(ScoreHUD.this.game));
 			}
 			
 		});

@@ -105,7 +105,10 @@ public class LoadingScreen implements Screen{
 
 	@Override
 	public void dispose() {
+		batch.dispose();
 		renderer.dispose();
+		logoFont.dispose();
+		background.getTexture().dispose();
 	}
 
 }
