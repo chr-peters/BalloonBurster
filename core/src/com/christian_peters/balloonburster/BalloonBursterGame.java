@@ -29,6 +29,8 @@ public class BalloonBursterGame extends Game {
 	@Override
 	public void create () {
 		this.batch = new SpriteBatch();
+		//used to avoid sound bug
+		PlayScreen.music = null;
 		this.assetmanager = new AssetManager();
 		this.scores = new ScoreManager(Gdx.files.local("scores.json"), 10);
 

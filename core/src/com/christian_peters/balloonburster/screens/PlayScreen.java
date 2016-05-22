@@ -118,7 +118,11 @@ public class PlayScreen implements Screen {
 
 	@Override
 	public void resume() {
-
+		//used to avoid music bug
+		music = assetmanager.get("sound/playmusic.mp3");
+		music.setLooping(true);
+		music.pause();
+		game.transition(new MenuScreen(game));
 	}
 
 	@Override
@@ -129,5 +133,6 @@ public class PlayScreen implements Screen {
 	@Override
 	public void dispose() {
 		hud.dispose();
+		music.dispose();
 	}
 }
