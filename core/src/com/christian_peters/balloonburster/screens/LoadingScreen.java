@@ -26,6 +26,7 @@ public class LoadingScreen implements Screen{
 	private BitmapFont logoFont;
 	private ShapeRenderer renderer;
 	private Sky background;
+	private boolean updateFlag; //Used for calling transition method only once
 
 	public LoadingScreen(BalloonBursterGame game){
 		this.game = game;
@@ -43,6 +44,8 @@ public class LoadingScreen implements Screen{
 		//Create Sky
 		this.background = new Sky(new Texture(Gdx.files.internal("img/sky.png")), BalloonBursterGame.V_HEIGHT);
 		this.background.setCenter(BalloonBursterGame.V_WIDTH / 2, BalloonBursterGame.V_HEIGHT / 2);
+
+		this.updateFlag = false;
 	}
 	
 	@Override
@@ -52,8 +55,9 @@ public class LoadingScreen implements Screen{
 	}
 
 	public void update(float dt){
-		if(assetmanager.update()){
-			game.transition(new MenuScreen(game));;
+		if(!updateFlag && assetmanager.update()){
+			game.transition(new MenuScreen(game));
+			updateFlag = true;
 		}
 	}
 	

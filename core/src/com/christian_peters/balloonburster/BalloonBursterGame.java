@@ -2,6 +2,7 @@ package com.christian_peters.balloonburster;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
@@ -9,11 +10,9 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.christian_peters.balloonburster.screens.AboutScreen;
 import com.christian_peters.balloonburster.screens.LoadingScreen;
 import com.christian_peters.balloonburster.screens.MenuScreen;
 import com.christian_peters.balloonburster.screens.PlayScreen;
-import com.christian_peters.balloonburster.screens.ScoreScreen;
 import com.christian_peters.balloonburster.screens.TransitionScreen;
 
 public class BalloonBursterGame extends Game {
@@ -39,25 +38,10 @@ public class BalloonBursterGame extends Game {
 		V_WIDTH = V_HEIGHT*aspectRatio;
 		
 		loadAssets();
-		setScreen(new LoadingScreen(this));
-	}
 
-	public void startGame(){
-		//To be executed from the main-menu
-		setScreen(new PlayScreen(this));
-	}
-	
-	public void startMenu(){
-		//To be executed from the loading-screen
-		setScreen(new MenuScreen(this));
-	}
-	
-	public void startScore(){
-		setScreen(new ScoreScreen(this));
-	}
-	
-	public void startAbout(){
-		setScreen(new AboutScreen(this));
+		Gdx.input.setCatchBackKey(true);//Used for back-button-navigation
+
+		setScreen(new LoadingScreen(this));
 	}
 	
 	public void transition(Screen target){
@@ -67,6 +51,10 @@ public class BalloonBursterGame extends Game {
 	@Override
 	public void render () {
 		super.render();
+		//Back Button Navigation
+		if(!this.getScreen().getClass().equals(MenuScreen.class) && Gdx.input.isKeyJustPressed(Input.Keys.BACK)){
+			this.transition(new MenuScreen(this));
+		}
 	}
 	
 	public void loadAssets() {
