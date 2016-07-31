@@ -15,7 +15,7 @@ android {
         instrumentTest.setRoot('tests')
     }
     defaultConfig {
-        applicationId "com.christian_peters.balloonburster"
+        applicationId "com.roterballon.balloonburster"
         minSdkVersion 8
         targetSdkVersion 23
     }
