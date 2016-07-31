@@ -153,7 +153,7 @@ public class AboutHUD {
 		scrollWrapper.add(balloonPopTextLabel).width(wrapper.getWidth() * 0.9f);
 		scrollWrapper.row();
 		
-		String dev = "A game developed by Christian Peters";
+		String dev = "A game developed by roterballon.com";
 		Label devLabel = new Label(dev, skin, "bold-outline");
 		devLabel.setWrap(true);
 		devLabel.setAlignment(Align.center);
